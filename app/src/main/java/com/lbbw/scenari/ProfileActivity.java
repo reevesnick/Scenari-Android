@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
  */
 public class ProfileActivity extends AppCompatActivity {
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);

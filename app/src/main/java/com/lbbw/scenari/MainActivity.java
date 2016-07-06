@@ -15,6 +15,10 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.crashlytics.android.Crashlytics;
+import com.parse.ui.ParseLoginBuilder;
+
+import io.fabric.sdk.android.Fabric;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
+        startActivityForResult(builder.build(), 0);
 
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
