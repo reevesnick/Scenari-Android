@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.crashlytics.android.Crashlytics;
 import com.parse.Parse;
+import com.parse.ParseUser;
 import com.parse.ui.ParseLoginBuilder;
 
 import io.fabric.sdk.android.Fabric;

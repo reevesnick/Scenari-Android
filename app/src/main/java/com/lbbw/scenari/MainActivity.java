@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.crashlytics.android.Crashlytics;
+import com.parse.ParseUser;
 import com.parse.ui.ParseLoginBuilder;
 
 import io.fabric.sdk.android.Fabric;
@@ -34,8 +35,14 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
-        startActivityForResult(builder.build(), 0);
+
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser == null) {
+            ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
+            startActivityForResult(builder.build(), 0);
+        }
+
+
 
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -117,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
             Intent profile = new Intent(this, ProfileActivity.class);
             startActivity(profile);
         }
+
 
 
 

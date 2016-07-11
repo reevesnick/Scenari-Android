@@ -8,13 +8,17 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseQueryAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by neegbeahreeves on 6/25/16.
  */
-public class RecentListViewAdapter extends BaseAdapter {
+public class RecentListViewAdapter extends ParseQueryAdapter {
 
     Context context;
     LayoutInflater inflater;
@@ -22,67 +26,55 @@ public class RecentListViewAdapter extends BaseAdapter {
     private List<RecentData> recentlist = null;
     private ArrayList<RecentData> arraylist;
 
-    public RecentListViewAdapter(Context context,
-                               List<RecentData> recentlist) {
-        this.context = context;
-        this.recentlist = recentlist;
-        inflater = LayoutInflater.from(context);
-        this.arraylist = new ArrayList<RecentData>();
-        this.arraylist.addAll(recentlist);
-        imageLoader = new ImageLoader(context);
+    public RecentListViewAdapter(Context context) {
+        super(context, new ParseQueryAdapter.QueryFactory<ParseObject>() {
+            public ParseQuery create() {
+                ParseQuery query = new ParseQuery("Questions");
+                query.orderByAscending("createdAt");
+                return query;
+            }
+
+        });
+
     }
 
 
-    public class ViewHolder {
-       // TextView date;
-        TextView username;
-        TextView question;
-        TextView answerA;
-        TextView answerB;
-        TextView answerAscore;
-        TextView answerBscore;
-        TextView title;
-        ImageView profilepic;
-    }
 
 
     @Override
-    public int getCount() {
-        return recentlist.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return recentlist.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(int position, View view, ViewGroup parent) {
+    public View getItemView(ParseObject object, View v, ViewGroup parent) {
         //return null;
-        final ViewHolder holder;
-        if (view == null){
-            holder = new ViewHolder();
-            view = inflater.inflate(R.layout.recentfragment_item, null);
 
-            holder.username = (TextView) view.findViewById(R.id.usernameTextView);
-            holder.question = (TextView) view.findViewById(R.id.questiontextView);
-            holder.answerA = (TextView) view.findViewById(R.id.answerAtextView);
-            holder.answerB = (TextView) view.findViewById(R.id.answerBtextView);
-            
+        if (v == null) {
+            v = View.inflate(getContext(), R.layout.recentfragment_item, null);
         }
-        else{
-            holder = (ViewHolder) view.getTag();
-            holder.username.setText(recentlist.get(position).getUsername());
-            holder.question.setText(recentlist.get(position).getQuestion());
-            holder.answerA.setText(recentlist.get(position).getAnswerA());
-            holder.answerB.setText(recentlist.get(position).getAnswerB());
 
-        }
-        return view;
+        TextView usernameTextView = (TextView) v.findViewById(R.id.usernameTextView);
+        //usernameTextView.setText(object.getString("username"));
+
+        TextView questionTextView = (TextView) v.findViewById(R.id.questiontextView);
+        questionTextView.setText(object.getString("question"));
+
+        TextView answerAText = (TextView) v.findViewById(R.id.answerAtextView);
+        answerAText.setText(object.getString("answer_a"));
+
+        TextView answerBText = (TextView) v.findViewById(R.id.answerBtextView);
+        answerBText.setText(object.getString("answer_b"));
+/*
+        TextView answerAScoreText = (TextView)v.findViewById(R.id.AScoretextView);
+       answerAScoreText.setText(object.getInt("answer_a_total"));
+
+        TextView answerBScoreText = (TextView)v.findViewById(R.id.BScoretextView);
+       answerBScoreText.setText(object.getInt("answer_b_total"));
+*/
+
+
+
+
+
+        super.getItemView(object, v, parent);
+
+        return v;
     }
 }
+

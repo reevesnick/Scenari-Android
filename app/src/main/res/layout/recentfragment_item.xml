@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="1/1/2016 at 12:00 PM"
-        android:id="@+id/textView"
+        android:id="@+id/dateView"
         android:layout_below="@+id/usernametextView"
         android:layout_alignLeft="@+id/usernametextView"
         android:layout_alignStart="@+id/usernametextView" />
@@ -42,7 +42,7 @@
         android:text="Question: Lorem Ispum"
         android:id="@+id/questiontextView"
         android:layout_marginTop="49dp"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/dateView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
@@ -56,10 +56,7 @@
         android:id="@+id/answerAtextView"
         android:layout_below="@+id/questiontextView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="68dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,11 +64,9 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="B: Answer B Here"
         android:id="@+id/answerBtextView"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/answerAtextView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -81,7 +76,9 @@
         android:layout_below="@+id/answerBtextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="63dp" />
+        android:layout_marginTop="63dp"
+        android:layout_alignRight="@+id/usernametextView"
+        android:layout_alignEnd="@+id/usernametextView" />
 
     <Button
         android:layout_width="wrap_content"
@@ -90,7 +87,9 @@
         android:id="@+id/buttonB"
         android:layout_alignBottom="@+id/buttonA"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/questiontextView"
+        android:layout_toEndOf="@+id/questiontextView" />
 
     <TextView
         android:layout_width="wrap_content"

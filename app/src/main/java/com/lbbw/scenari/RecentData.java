@@ -14,6 +14,10 @@ import java.util.Date;
 @ParseClassName("Questions")
 public class RecentData extends ParseObject {
 
+    public RecentData(){
+
+    }
+/*
     private ParseFile profilePicFile;
     private String username;
     private Date date;
@@ -23,7 +27,9 @@ public class RecentData extends ParseObject {
     private String answerB;
     private Integer answerAScore;
     private Integer answerBScore;
+*/
 
+    /*
     public ParseFile getProfilePicFile() {
         return profilePicFile;
     }
@@ -47,7 +53,7 @@ public class RecentData extends ParseObject {
     public void setDate(Date date) {
         this.date = date;
     }
-
+*/
     public String getQuestion() {
         return getString("question");
     }
@@ -72,6 +78,7 @@ public class RecentData extends ParseObject {
         put("answer_b", answerB);
     }
 
+    /*
     public Integer getAnswerAScore() {
         return getInt("answer_a_total");
     }
@@ -92,11 +99,14 @@ public class RecentData extends ParseObject {
         put("objectId", objectID);
     }
 
-
+*/
     public static ParseQuery<RecentData> getQuery(){
         return ParseQuery.getQuery(RecentData.class);
     }
 
-
+    @Override
+    public String toString(){
+        return getString("question") + "\n" + getString("answer_a")+ "\n" + getString("answer_b");
+    }
 
 }
