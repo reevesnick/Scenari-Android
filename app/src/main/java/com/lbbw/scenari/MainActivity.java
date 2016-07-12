@@ -1,6 +1,8 @@
 package com.lbbw.scenari;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,22 +13,38 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.crashlytics.android.Crashlytics;
+
+import com.parse.LogInCallback;
+import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.ui.ParseLoginBuilder;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import io.fabric.sdk.android.Fabric;
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    final List<String> permissions = Arrays.asList("public_profile", "email");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +60,20 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(builder.build(), 0);
         }
 
-
-
+/*
+        ParseFacebookUtils.logInWithReadPermissionsInBackground(this, permissions, new LogInCallback() {
+            @Override
+            public void done(ParseUser user, ParseException err) {
+                if (user == null) {
+                    Log.d("MyApp", "Uh oh. The user cancelled the Facebook login.");
+                } else if (user.isNew()) {
+                    Log.d("MyApp", "User signed up and logged in through Facebook!");
+                } else {
+                    Log.d("MyApp", "User logged in through Facebook!");
+                }
+            }
+        });
+*/
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -63,6 +93,82 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();*/
             }
         });
+    }
+/*
+    private void getUserDetailsFromFB() {
+        // Suggested by https://disqus.com/by/dominiquecanlas/
+        Bundle parameters = new Bundle();
+        parameters.putString("fields", "email,name,picture");
+        new GraphRequest(
+                AccessToken.getCurrentAccessToken(),
+                "/me",
+                parameters,
+                HttpMethod.GET,
+                new GraphRequest.Callback() {
+                    public void onCompleted(GraphResponse response) {
+         // handle the result
+                        try {
+                            email = response.getJSONObject().getString("email");
+                            mEmailID.setText(email);
+                            name = response.getJSONObject().getString("name");
+                            mUsername.setText(name);
+                            JSONObject picture = response.getJSONObject().getJSONObject("picture");
+                            JSONObject data = picture.getJSONObject("data");
+                            //  Returns a 50x50 profile picture
+                            String pictureUrl = data.getString("url");
+                            new ProfilePhotoAsync(pictureUrl).execute();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+        ).executeAsync();
+    }
+
+    private void saveNewUser() {
+        parseUser = ParseUser.getCurrentUser();
+        parseUser.setUsername(name);
+        parseUser.setEmail(email);
+//        Saving profile photo as a ParseFile
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        Bitmap bitmap = ((BitmapDrawable) mProfileImage.getDrawable()).getBitmap();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 70, stream);
+        byte[] data = stream.toByteArray();
+        String thumbName = parseUser.getUsername().replaceAll("\\s+", "");
+        final ParseFile parseFile = new ParseFile(thumbName + "_thumb.jpg", data);
+        parseFile.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                parseUser.put("profileThumb", parseFile);
+                //Finally save all the user details
+                parseUser.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        Toast.makeText(MainActivity.this, "New user:" + name + " Signed up", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+    }
+*/
+
+
+
+    public static Bitmap DownloadImageBitmap(String url) {
+        Bitmap bm = null;
+        try {
+            URL aURL = new URL(url);
+            URLConnection conn = aURL.openConnection();
+            conn.connect();
+            InputStream is = conn.getInputStream();
+            BufferedInputStream bis = new BufferedInputStream(is);
+            bm = BitmapFactory.decodeStream(bis);
+            bis.close();
+            is.close();
+        } catch (IOException e) {
+            Log.e("IMAGE", "Error getting bitmap", e);
+        }
+        return bm;
     }
 
     private void setupViewPager(ViewPager viewPager) {

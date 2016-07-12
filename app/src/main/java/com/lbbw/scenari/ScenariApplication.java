@@ -4,7 +4,10 @@ import android.app.Application;
 import android.content.Context;
 
 import com.crashlytics.android.Crashlytics;
+
 import com.parse.Parse;
+import com.parse.ParseFacebookUtils;
+import com.parse.ParseInstallation;
 import com.parse.ParseUser;
 import com.parse.ui.ParseLoginBuilder;
 
@@ -26,7 +29,7 @@ public class ScenariApplication extends Application {
      Fabric.with(this, new Crashlytics());
 
 
-    // Parse SDK
+        // Parse SDK
 
      Parse.initialize(new Parse.Configuration.Builder(this.getApplicationContext())
              .applicationId("dNNESXhlXqyY5oQNvAmK5u5VOyNspRKRRGE46II9")
@@ -38,5 +41,17 @@ public class ScenariApplication extends Application {
      );
 
 
- }
+        // Parse Push
+        ParseInstallation.getCurrentInstallation().saveInBackground();
+
+
+        //ParseFacebookUtils.initialize(this.getApplicationContext());
+
+
+        // Facebook SDK
+        // Initialize the SDK before executing any other operations,
+        //FacebookSdk.sdkInitialize(getApplicationContext());
+        //AppEventsLogger.activateApp(this);
+
+    }
 }

@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme">
 
+
+        <permission android:protectionLevel="signature"
+            android:name="com.lbbw.scenari.permission.C2D_MESSAGE" />
+        <uses-permission android:name="com.lbbw.scenari.permission.C2D_MESSAGE" />
         <activity
             android:name="com.parse.ui.ParseLoginActivity"
             android:label="@string/app_name"
@@ -50,7 +54,7 @@
 
         <activity
             android:name=".CreateScenarioActivity"
-            android:label="Create Scenaio"
+            android:label="Create Scenario"
             android:screenOrientation="portrait">
         </activity>
 
@@ -60,11 +64,53 @@
             android:screenOrientation="portrait">
         </activity>
 
+
+        <service android:name="com.parse.PushService"
+            android:exported="false"
+            />
+
+        <receiver android:name="com.parse.ParseBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <!--
+                <action android:name="com.parse.push.intent.RECEIVE" />
+                <action android:name="com.parse.push.intent.DELETE" />
+                <action android:name="com.parse.push.intent.OPEN" />
+-->
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.parse.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <!-- IMPORTANT: Change "com.parse.tutorials.pushnotifications" to match your app's package name. -->
+                <category android:name="com.lbbw.scenari" />
+            </intent-filter>
+        </receiver>
+
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="8e03bf8519f7903a4e20ae17146a26bdb3d4774a" />
+
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="1666624106897146"/>
+
+        <meta-data android:name="com.parse.push.gcm_sender_id"
+            android:value="id:399947641423" />
+        <meta-data android:name="ApplicationId" android:value="1666624106897146"/>
+
     </application>
+
+
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 </manifest>

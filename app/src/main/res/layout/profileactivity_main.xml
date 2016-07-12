@@ -23,14 +23,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <com.parse.ParseImageView
+            android:layout_width="66dp"
+            android:layout_height="66dp"
             android:id="@+id/imageView"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="87dp"
-            />
+            android:layout_above="@+id/usernameTextView"
+            android:layout_centerHorizontal="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -104,4 +102,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/uiview" />
+
+    <TextView android:id="@android:id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="No Scenarios...Yet" />
 </RelativeLayout>

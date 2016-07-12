@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:showDividers="middle">
 
     <com.parse.ParseImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="44dp"
+        android:layout_height="45dp"
         android:id="@+id/imageView2"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -77,19 +78,20 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="63dp"
-        android:layout_alignRight="@+id/usernametextView"
-        android:layout_alignEnd="@+id/usernametextView" />
+        android:layout_alignRight="@+id/answerBtextView"
+        android:layout_alignEnd="@+id/answerBtextView" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="B"
         android:id="@+id/buttonB"
-        android:layout_alignBottom="@+id/buttonA"
+        android:layout_alignTop="@+id/buttonA"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/questiontextView"
-        android:layout_toEndOf="@+id/questiontextView" />
+        android:layout_toEndOf="@+id/dateView"
+        android:layout_above="@+id/AScoretextView"
+        android:layout_toRightOf="@+id/dateView" />
 
     <TextView
         android:layout_width="wrap_content"

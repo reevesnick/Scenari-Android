@@ -8,9 +8,12 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.parse.ParseFile;
+import com.parse.ParseImageView;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +33,8 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
         super(context, new ParseQueryAdapter.QueryFactory<ParseObject>() {
             public ParseQuery create() {
                 ParseQuery query = new ParseQuery("Questions");
-                query.orderByAscending("createdAt");
+                query.include("postCreator");
+                query.orderByDescending("createdAt");
                 return query;
             }
 
@@ -48,9 +52,31 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
         if (v == null) {
             v = View.inflate(getContext(), R.layout.recentfragment_item, null);
         }
+/*
+        ParseUser parseObject = Pa.create("Activity");
+        parseObject = object.getParseObject("postCreator");
+        String username = parseObject.getString("username");
+*/
+        ParseImageView profileImage = (ParseImageView)v.findViewById(R.id.imageView2);
+        ParseFile imageFile = object.getParseObject("postCreator").getParseFile("profile_pic");
+        if (imageFile != null){
+            profileImage.setParseFile(imageFile);
+            profileImage.loadInBackground();
+        }
+
+
+
 
         TextView usernameTextView = (TextView) v.findViewById(R.id.usernameTextView);
-        //usernameTextView.setText(object.getString("username"));
+        if (usernameTextView != null) {
+            usernameTextView.setText(object.getParseObject("postCreator").getString("username").toString());
+        }
+
+
+
+
+        TextView dateTextView = (TextView)v.findViewById(R.id.dateView);
+        dateTextView.setText(object.getCreatedAt().toString());
 
         TextView questionTextView = (TextView) v.findViewById(R.id.questiontextView);
         questionTextView.setText(object.getString("question"));
@@ -60,13 +86,12 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
 
         TextView answerBText = (TextView) v.findViewById(R.id.answerBtextView);
         answerBText.setText(object.getString("answer_b"));
-/*
+
         TextView answerAScoreText = (TextView)v.findViewById(R.id.AScoretextView);
-       answerAScoreText.setText(object.getInt("answer_a_total"));
+       answerAScoreText.setText("A: "+object.getNumber("answer_a_total").toString()+" votes");
 
         TextView answerBScoreText = (TextView)v.findViewById(R.id.BScoretextView);
-       answerBScoreText.setText(object.getInt("answer_b_total"));
-*/
+        answerBScoreText.setText("B: "+object.getNumber("answer_b_total").toString()+" votes");
 
 
 
@@ -76,5 +101,7 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
 
         return v;
     }
+
+
 }
 
