@@ -42,7 +42,9 @@ public class ScenariApplication extends Application {
 
 
         // Parse Push
-        ParseInstallation.getCurrentInstallation().saveInBackground();
+        ParseInstallation installation = ParseInstallation.getCurrentInstallation();
+        installation.put("GCMSenderId", "399947641423");
+        installation.saveInBackground();;
 
 
         //ParseFacebookUtils.initialize(this.getApplicationContext());

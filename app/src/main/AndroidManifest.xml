@@ -13,9 +13,7 @@
         android:theme="@style/MyMaterialTheme">
 
 
-        <permission android:protectionLevel="signature"
-            android:name="com.lbbw.scenari.permission.C2D_MESSAGE" />
-        <uses-permission android:name="com.lbbw.scenari.permission.C2D_MESSAGE" />
+
         <activity
             android:name="com.parse.ui.ParseLoginActivity"
             android:label="@string/app_name"
@@ -54,14 +52,16 @@
 
         <activity
             android:name=".CreateScenarioActivity"
-            android:label="Create Scenario"
+            android:label="Create A Scenario"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
             android:name=".ProfileActivity"
             android:label="Profile"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+
         </activity>
 
 
@@ -69,15 +69,16 @@
             android:exported="false"
             />
 
-        <receiver android:name="com.parse.ParseBroadcastReceiver" >
+        <receiver android:name="com.parse.ParseBroadcastReceiver"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.USER_PRESENT" />
-                <!--
+
                 <action android:name="com.parse.push.intent.RECEIVE" />
                 <action android:name="com.parse.push.intent.DELETE" />
                 <action android:name="com.parse.push.intent.OPEN" />
--->
+
             </intent-filter>
         </receiver>
         <receiver
@@ -98,9 +99,9 @@
             android:value="8e03bf8519f7903a4e20ae17146a26bdb3d4774a" />
 
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="1666624106897146"/>
-
+<!--
         <meta-data android:name="com.parse.push.gcm_sender_id"
-            android:value="id:399947641423" />
+            android:value="id:399947641423" /> -->
         <meta-data android:name="ApplicationId" android:value="1666624106897146"/>
 
     </application>
@@ -113,4 +114,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <permission android:protectionLevel="signature"
+        android:name="com.lbbw.scenari.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.lbbw.scenari.permission.C2D_MESSAGE" />
 </manifest>

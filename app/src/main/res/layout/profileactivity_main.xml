@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -19,9 +19,11 @@
         android:layout_width="match_parent"
         android:layout_height="500px"
         android:background="#52A7DF"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar">
+
+
 
         <com.parse.ParseImageView
             android:layout_width="66dp"
@@ -107,5 +109,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="No Scenarios...Yet" />
+        android:text="No Scenarios...Yet"
+        android:layout_below="@+id/toolbar" />
 </RelativeLayout>
