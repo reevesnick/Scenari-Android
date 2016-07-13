@@ -1,6 +1,8 @@
 package com.lbbw.scenari;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,13 +68,14 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
 
 
 
+       // final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
 
-        TextView usernameTextView = (TextView) v.findViewById(R.id.usernameTextView);
-        if (usernameTextView != null) {
-            usernameTextView.setText(object.getParseObject("postCreator").getString("username").toString());
+
+        TextView usernameTextView = (TextView) v.findViewById(R.id.usernametextView);
+        if (usernameTextView != null){
+
         }
-
-
+        usernameTextView.setText("@"+object.getParseObject("postCreator").getString("username").toString());
 
 
         TextView dateTextView = (TextView)v.findViewById(R.id.dateView);

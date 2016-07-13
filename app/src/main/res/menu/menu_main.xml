@@ -2,6 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.lbbw.scenari.MainActivity">
+
+
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
@@ -11,10 +13,13 @@
     <item
         android:id="@+id/action_search"
         android:title="Search"
+        android:icon="@drawable/ic_stat_name"
+
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_profile"
         android:title="Profile"
+        android:icon="@drawable/ic_action_name"
         app:showAsAction="ifRoom" />
 </menu>

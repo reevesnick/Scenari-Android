@@ -99,9 +99,9 @@
             android:value="8e03bf8519f7903a4e20ae17146a26bdb3d4774a" />
 
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="1666624106897146"/>
-<!--
+
         <meta-data android:name="com.parse.push.gcm_sender_id"
-            android:value="id:399947641423" /> -->
+            android:value="id:399947641423" />
         <meta-data android:name="ApplicationId" android:value="1666624106897146"/>
 
     </application>

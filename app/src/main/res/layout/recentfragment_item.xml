@@ -7,12 +7,13 @@
         android:layout_width="44dp"
         android:layout_height="45dp"
         android:id="@+id/imageView2"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="23dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="32dp" />
+        android:background="@drawable/img"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,10 +22,12 @@
         android:text="\@username"
         android:id="@+id/usernametextView"
         android:layout_alignTop="@+id/imageView2"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/imageView2"
-        android:layout_toEndOf="@+id/imageView2"
-        android:layout_marginLeft="34dp"
-        android:layout_marginStart="34dp" />
+        android:layout_toEndOf="@+id/imageView2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,6 +36,8 @@
         android:text="1/1/2016 at 12:00 PM"
         android:id="@+id/dateView"
         android:layout_below="@+id/usernametextView"
+        android:layout_alignRight="@+id/usernametextView"
+        android:layout_alignEnd="@+id/usernametextView"
         android:layout_alignLeft="@+id/usernametextView"
         android:layout_alignStart="@+id/usernametextView" />
 
@@ -44,10 +49,8 @@
         android:id="@+id/questiontextView"
         android:layout_marginTop="49dp"
         android:layout_below="@+id/dateView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_alignStart="@+id/imageView2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -56,8 +59,11 @@
         android:text="A: Answer A Here "
         android:id="@+id/answerAtextView"
         android:layout_below="@+id/questiontextView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignRight="@+id/buttonB"
+        android:layout_alignEnd="@+id/buttonB"
+        android:layout_alignLeft="@+id/questiontextView"
+        android:layout_alignStart="@+id/questiontextView"
+        android:textColor="#000000" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -65,33 +71,39 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="B: Answer B Here"
         android:id="@+id/answerBtextView"
+        android:layout_marginTop="22dp"
+        android:textColor="#000000"
         android:layout_below="@+id/answerAtextView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignLeft="@+id/answerAtextView"
+        android:layout_alignStart="@+id/answerAtextView"
+        android:layout_toStartOf="@+id/buttonB"
+        android:layout_alignRight="@+id/answerAtextView"
+        android:layout_alignEnd="@+id/answerAtextView" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="A"
         android:id="@+id/buttonA"
-        android:layout_below="@+id/answerBtextView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_marginTop="63dp"
-        android:layout_alignRight="@+id/answerBtextView"
-        android:layout_alignEnd="@+id/answerBtextView" />
+        android:textColor="#ffffff"
+        android:background="#52a7df"
+        android:layout_below="@+id/answerBtextView"
+        android:layout_alignLeft="@+id/answerBtextView"
+        android:layout_alignStart="@+id/answerBtextView" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="B"
         android:id="@+id/buttonB"
-        android:layout_alignTop="@+id/buttonA"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/dateView"
-        android:layout_above="@+id/AScoretextView"
-        android:layout_toRightOf="@+id/dateView" />
+        android:textColor="#ffffff"
+        android:background="#52a7df"
+        android:layout_above="@+id/BScoretextView"
+        android:layout_alignRight="@+id/dateView"
+        android:layout_alignEnd="@+id/dateView"
+        android:layout_marginRight="32dp"
+        android:layout_marginEnd="32dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -99,10 +111,13 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="A: 0"
         android:id="@+id/AScoretextView"
-        android:layout_marginTop="41dp"
         android:layout_below="@+id/buttonA"
-        android:layout_alignLeft="@+id/imageView2"
-        android:layout_alignStart="@+id/imageView2" />
+        android:textColor="#000000"
+        android:layout_alignRight="@+id/buttonA"
+        android:layout_alignEnd="@+id/buttonA"
+        android:gravity="center"
+        android:layout_alignLeft="@+id/buttonA"
+        android:layout_alignStart="@+id/buttonA" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -110,9 +125,25 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="B: 0"
         android:id="@+id/BScoretextView"
-        android:layout_alignTop="@+id/AScoretextView"
+        android:textColor="#000000"
+        android:layout_above="@+id/button"
+        android:layout_alignLeft="@+id/buttonB"
+        android:layout_alignStart="@+id/buttonB"
         android:layout_alignRight="@+id/buttonB"
         android:layout_alignEnd="@+id/buttonB"
-        android:layout_marginRight="27dp"
-        android:layout_marginEnd="27dp" />
+        android:gravity="center" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Share"
+        android:id="@+id/button"
+        android:textColor="#ffffff"
+        android:background="#52a7df"
+        android:layout_below="@+id/AScoretextView"
+        android:layout_marginTop="23dp"
+        android:layout_alignRight="@+id/BScoretextView"
+        android:layout_alignEnd="@+id/BScoretextView"
+        android:layout_alignLeft="@+id/buttonA"
+        android:layout_alignStart="@+id/buttonA" />
 </RelativeLayout>

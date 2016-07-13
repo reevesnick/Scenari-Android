@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -26,8 +26,8 @@
 
 
         <com.parse.ParseImageView
-            android:layout_width="66dp"
-            android:layout_height="66dp"
+            android:layout_width="99dp"
+            android:layout_height="99dp"
             android:id="@+id/imageView"
             android:layout_above="@+id/usernameTextView"
             android:layout_centerHorizontal="true" />
@@ -40,7 +40,8 @@
             android:id="@+id/usernameTextView"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -48,13 +49,13 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Posts"
             android:id="@+id/postsLabel"
-            android:layout_marginBottom="33dp"
-            android:layout_marginLeft="42dp"
-            android:layout_marginStart="42dp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginRight="44dp"
+            android:layout_marginEnd="44dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textColor="#FFFFFF"/>
+            android:layout_toLeftOf="@+id/usernameTextView"
+            android:layout_toStartOf="@+id/usernameTextView" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -62,12 +63,12 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Total Votes"
             android:id="@+id/totalVotesLabel"
-            android:layout_marginLeft="25dp"
-            android:layout_marginStart="25dp"
-            android:layout_alignTop="@+id/postsLabel"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_alignBaseline="@+id/postsLabel"
+            android:layout_alignBottom="@+id/postsLabel"
             android:layout_toRightOf="@+id/usernameTextView"
-            android:layout_toEndOf="@+id/usernameTextView"
-            android:textColor="#FFFFFF"/>
+            android:layout_toEndOf="@+id/usernameTextView" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -75,12 +76,14 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="0"
             android:id="@+id/totalPostNumber"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:gravity="center"
             android:layout_above="@+id/postsLabel"
+            android:layout_alignLeft="@+id/postsLabel"
+            android:layout_alignStart="@+id/postsLabel"
             android:layout_alignRight="@+id/postsLabel"
-            android:layout_alignEnd="@+id/postsLabel"
-            android:layout_marginRight="17dp"
-            android:layout_marginEnd="17dp"
-            android:textColor="#FFFFFF"/>
+            android:layout_alignEnd="@+id/postsLabel" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -89,11 +92,15 @@
             android:text="0"
             android:id="@+id/totalVotesNumber"
             android:layout_alignTop="@+id/totalPostNumber"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_alignLeft="@+id/totalVotesLabel"
+            android:layout_alignStart="@+id/totalVotesLabel"
+            android:gravity="center"
             android:layout_alignRight="@+id/totalVotesLabel"
-            android:layout_alignEnd="@+id/totalVotesLabel"
-            android:layout_marginRight="40dp"
-            android:layout_marginEnd="40dp"
-            android:textColor="#FFFFFF"/>
+            android:layout_alignEnd="@+id/totalVotesLabel" />
+
+
     </RelativeLayout>
 
     <ListView
@@ -104,11 +111,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/uiview" />
-
-    <TextView android:id="@android:id/empty"
+<!--
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="No Scenarios...Yet"
-        android:layout_below="@+id/toolbar" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+-->
 </RelativeLayout>

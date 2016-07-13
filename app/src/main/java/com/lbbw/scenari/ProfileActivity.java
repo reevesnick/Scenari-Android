@@ -91,9 +91,11 @@ public class ProfileActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        /*
         if (id == R.id.action_settings) {
             return true;
         }
+        */
 
         if (id == R.id.action_profile){
             Intent profile = new Intent(this, ProfileActivity.class);

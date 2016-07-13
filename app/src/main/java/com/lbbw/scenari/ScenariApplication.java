@@ -30,7 +30,6 @@ public class ScenariApplication extends Application {
 
 
         // Parse SDK
-
      Parse.initialize(new Parse.Configuration.Builder(this.getApplicationContext())
              .applicationId("dNNESXhlXqyY5oQNvAmK5u5VOyNspRKRRGE46II9")
              .clientKey("bZHmRQmG4NGdgk82rBBKORGt3LnVsOBeyl53Qywy")
@@ -40,11 +39,12 @@ public class ScenariApplication extends Application {
      .build()
      );
 
-
         // Parse Push
         ParseInstallation installation = ParseInstallation.getCurrentInstallation();
         installation.put("GCMSenderId", "399947641423");
         installation.saveInBackground();;
+
+        ParseUser.enableAutomaticUser();
 
 
         //ParseFacebookUtils.initialize(this.getApplicationContext());
