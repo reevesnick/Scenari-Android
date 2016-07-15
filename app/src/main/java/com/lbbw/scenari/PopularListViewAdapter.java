@@ -20,10 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by neegbeahreeves on 6/25/16.
+ * Created by neegbeahreeves on 7/14/16.
  */
-public class RecentListViewAdapter extends ParseQueryAdapter {
-
+public class PopularListViewAdapter extends ParseQueryAdapter {
     Context context;
     LayoutInflater inflater;
     ImageLoader imageLoader;
@@ -34,12 +33,12 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
     private Button buttonB;
     private Button shareButton;
 
-    public RecentListViewAdapter(Context context) {
+    public PopularListViewAdapter(Context context) {
         super(context, new ParseQueryAdapter.QueryFactory<ParseObject>() {
             public ParseQuery create() {
                 ParseQuery query = new ParseQuery("Questions");
                 query.include("postCreator");
-                query.orderByDescending("createdAt");
+                query.orderByDescending("answer_a_total");
                 return query;
             }
 
@@ -71,7 +70,7 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
 
 
 
-       // final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        // final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
 
 
         TextView usernameTextView = (TextView) v.findViewById(R.id.usernametextView);
@@ -148,10 +147,4 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
         return v;
     }
 
-
-
-
-
-
 }
-

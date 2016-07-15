@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:showDividers="middle">
+
+    <com.parse.ParseImageView
+        android:layout_width="44dp"
+        android:layout_height="45dp"
+        android:id="@+id/imageView2"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="23dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/img"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="\@username"
+        android:id="@+id/usernametextView"
+        android:layout_alignTop="@+id/imageView2"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="1/1/2016 at 12:00 PM"
+        android:id="@+id/dateView"
+        android:layout_below="@+id/usernametextView"
+        android:layout_alignRight="@+id/usernametextView"
+        android:layout_alignEnd="@+id/usernametextView"
+        android:layout_alignLeft="@+id/usernametextView"
+        android:layout_alignStart="@+id/usernametextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Question: Lorem Ispum"
+        android:id="@+id/questiontextView"
+        android:layout_marginTop="49dp"
+        android:layout_below="@+id/dateView"
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_alignStart="@+id/imageView2"
+        android:gravity="center"
+        android:layout_toLeftOf="@+id/BScoretextView"
+        android:layout_toStartOf="@+id/BScoretextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="A: Answer A Here "
+        android:id="@+id/answerAtextView"
+        android:layout_below="@+id/questiontextView"
+        android:layout_alignLeft="@+id/questiontextView"
+        android:layout_alignStart="@+id/questiontextView"
+        android:textColor="#000000"
+        android:layout_alignRight="@+id/dateView"
+        android:layout_alignEnd="@+id/dateView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="B: Answer B Here"
+        android:id="@+id/answerBtextView"
+        android:layout_marginTop="22dp"
+        android:textColor="#000000"
+        android:layout_below="@+id/answerAtextView"
+        android:layout_alignLeft="@+id/answerAtextView"
+        android:layout_alignStart="@+id/answerAtextView"
+        android:layout_alignRight="@+id/answerAtextView"
+        android:layout_alignEnd="@+id/answerAtextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="A: 0"
+        android:id="@+id/AScoretextView"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:layout_below="@+id/answerBtextView"
+        android:layout_alignLeft="@+id/answerBtextView"
+        android:layout_alignStart="@+id/answerBtextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="B: 0"
+        android:id="@+id/BScoretextView"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:layout_alignTop="@+id/AScoretextView"
+        android:layout_alignRight="@+id/dateView"
+        android:layout_alignEnd="@+id/dateView"
+        android:layout_marginRight="27dp"
+        android:layout_marginEnd="27dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Share"
+        android:id="@+id/button"
+        android:textColor="#ffffff"
+        android:background="#52a7df"
+        android:layout_below="@+id/AScoretextView"
+        android:layout_marginTop="23dp"
+        android:layout_alignRight="@+id/BScoretextView"
+        android:layout_alignEnd="@+id/BScoretextView"
+        android:layout_alignLeft="@+id/answerBtextView"
+        android:layout_alignStart="@+id/answerBtextView" />
+</RelativeLayout>

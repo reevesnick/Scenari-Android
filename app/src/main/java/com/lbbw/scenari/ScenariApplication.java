@@ -6,7 +6,6 @@ import android.content.Context;
 import com.crashlytics.android.Crashlytics;
 
 import com.parse.Parse;
-import com.parse.ParseFacebookUtils;
 import com.parse.ParseInstallation;
 import com.parse.ParseUser;
 import com.parse.ui.ParseLoginBuilder;

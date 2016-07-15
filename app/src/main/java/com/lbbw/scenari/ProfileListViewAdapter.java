@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.Parse;
 import com.parse.ParseFile;
 import com.parse.ParseImageView;
 import com.parse.ParseObject;
@@ -20,10 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by neegbeahreeves on 6/25/16.
+ * Created by neegbeahreeves on 7/14/16.
  */
-public class RecentListViewAdapter extends ParseQueryAdapter {
-
+public class ProfileListViewAdapter extends ParseQueryAdapter {
     Context context;
     LayoutInflater inflater;
     ImageLoader imageLoader;
@@ -34,11 +34,12 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
     private Button buttonB;
     private Button shareButton;
 
-    public RecentListViewAdapter(Context context) {
+    public ProfileListViewAdapter(Context context, ProfileListViewAdapter profileActivity) {
         super(context, new ParseQueryAdapter.QueryFactory<ParseObject>() {
             public ParseQuery create() {
                 ParseQuery query = new ParseQuery("Questions");
                 query.include("postCreator");
+                query.whereEqualTo("username", ParseUser.getCurrentUser());
                 query.orderByDescending("createdAt");
                 return query;
             }
@@ -55,7 +56,7 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
         //return null;
 
         if (v == null) {
-            v = View.inflate(getContext(), R.layout.homefragment_item, null);
+            v = View.inflate(getContext(), R.layout.profilelistactivity, null);
         }
 /*
         ParseUser parseObject = Pa.create("Activity");
@@ -71,7 +72,7 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
 
 
 
-       // final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        // final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
 
 
         TextView usernameTextView = (TextView) v.findViewById(R.id.usernametextView);
@@ -97,37 +98,7 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
         answerBScoreText.setText("B: "+object.getNumber("answer_b_total").toString()+" votes");
 
 
-        buttonA = (Button)v.findViewById(R.id.buttonA);
-        buttonB = (Button)v.findViewById(R.id.buttonB);
-        shareButton = (Button)v.findViewById(R.id.button);
-        buttonA.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ParseUser user = ParseUser.getCurrentUser();
-                object.addUnique("answerVoted", user.getObjectId());
-                object.increment("answer_a_total");
-                object.saveInBackground();
 
-                Toast.makeText(getContext(), "Answer Submitted",
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        buttonB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ParseUser user = ParseUser.getCurrentUser();
-                object.addUnique("answerVoted", user.getObjectId());
-                object.increment("answer_b_total");
-                object.saveInBackground();
-
-                Toast.makeText(getContext(), "Answer Submitted",
-                        Toast.LENGTH_SHORT).show();
-
-
-
-            }
-        });
 
         shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,10 +119,4 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
         return v;
     }
 
-
-
-
-
-
 }
-

@@ -1,20 +1,16 @@
 package com.lbbw.scenari;
 
-import com.parse.Parse;
 import com.parse.ParseClassName;
-import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
-import java.util.Date;
 
 /**
  * Created by neegbeahreeves on 6/25/16.
  */
 @ParseClassName("Questions")
-public class RecentData extends ParseObject {
+public class QuestionData extends ParseObject {
 
-    public RecentData(){
+    public QuestionData(){
 
     }
 /*
@@ -100,8 +96,8 @@ public class RecentData extends ParseObject {
     }
 
 */
-    public static ParseQuery<RecentData> getQuery(){
-        return ParseQuery.getQuery(RecentData.class);
+    public static ParseQuery<QuestionData> getQuery(){
+        return ParseQuery.getQuery(QuestionData.class);
     }
 
     @Override

@@ -1,20 +1,28 @@
 package com.lbbw.scenari;
 
 import android.app.Activity;
+import android.app.ListActivity;
+import android.app.ListFragment;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.parse.ParseFile;
 import com.parse.ParseImageView;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 
 /**
@@ -26,6 +34,11 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView votesNum;
 
     private ParseFile profilePic;
+    RoundImage roundedImage;
+
+    private ParseQueryAdapter<ParseObject> mAdapter;
+    private ProfileListViewAdapter profileListViewAdapter;
+    private ListView listView;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -41,7 +54,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-       // getSupportActionBar().show();
+       //getSupportActionBar().show();
 
         // add back arrow to toolbar
         if (getSupportActionBar() != null){
@@ -59,6 +72,7 @@ public class ProfileActivity extends AppCompatActivity {
 */
         ParseImageView profileImage = (ParseImageView)findViewById(R.id.imageView);
         ParseFile imageFile = ParseUser.getCurrentUser().getParseFile("profile_pic");
+
         if (imageFile != null){
             profileImage.setParseFile(imageFile);
             profileImage.loadInBackground();
@@ -79,8 +93,22 @@ public class ProfileActivity extends AppCompatActivity {
         //username = ParseUser.getCurrentUser().getString("username");
         //postInt = ParseUser.getCurrentUser().getNumber("post");
 
+        listView = (ListView)findViewById(R.id.listView);
+
+        profileListViewAdapter = new ProfileListViewAdapter(getBaseContext(), profileListViewAdapter);
+        listView.setAdapter(profileListViewAdapter);
+        // listView.setAdapter(recentListViewAdapter);
+        profileListViewAdapter.loadObjects();
 
 
+
+    }
+
+
+
+    @Override
+    public void onSaveInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
     }
 
     @Override

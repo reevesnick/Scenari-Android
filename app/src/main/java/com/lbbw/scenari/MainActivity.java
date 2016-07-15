@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
 
@@ -225,7 +226,15 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+
+
 */
+        if (id == R.id.action_search){
+            Toast.makeText(MainActivity.this, "Search is not Avaliable",
+                    Toast.LENGTH_SHORT).show();
+
+        }
+
         if (id == R.id.action_profile){
             Intent profile = new Intent(this, ProfileActivity.class);
             startActivity(profile);
