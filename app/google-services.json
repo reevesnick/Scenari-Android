@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "710119163065",
+    "firebase_url": "https://scenari-3616d.firebaseio.com",
+    "project_id": "scenari-3616d",
+    "storage_bucket": "scenari-3616d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:710119163065:android:2f25ad478ffe5b1b",
+        "android_client_info": {
+          "package_name": "com.lbbw.scenari"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "710119163065-iu0k79cfl3afo0hd6uko1pqp1ugtijoc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2PYJSXKGEXYS_rrDA_e2UIhJ6saNY6Ec"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

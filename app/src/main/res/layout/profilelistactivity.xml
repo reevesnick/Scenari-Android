@@ -1,45 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<com.daimajia.swipe.SwipeLayout
+    xmlns:swipe="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    swipe:leftEdgeSwipeOffset="0dp"
+    swipe:rightEdgeSwipeOffset="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#FF5534"
+        android:gravity="center"
+        android:tag="Bottom3"
+        android:weightSum="10">
+
+        <ImageView
+            android:id="@+id/trash"
+            android:layout_width="27dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"/>
+           <!-- android:src="@drawable/trash" -->
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text="Do you want to delete this item?"
+            android:textColor="#fff"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="4"
+            android:text="Delete"
+            android:textColor="#FF5534" />
+          <!--  android:background="@drawable/white" -->
+
+    </LinearLayout>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:showDividers="middle">
 
-    <com.parse.ParseImageView
-        android:layout_width="44dp"
-        android:layout_height="45dp"
-        android:id="@+id/imageView2"
-        android:layout_marginLeft="23dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="23dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/img"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="\@username"
-        android:id="@+id/usernametextView"
-        android:layout_alignTop="@+id/imageView2"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/imageView2"
-        android:layout_toEndOf="@+id/imageView2" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="1/1/2016 at 12:00 PM"
-        android:id="@+id/dateView"
-        android:layout_below="@+id/usernametextView"
-        android:layout_alignRight="@+id/usernametextView"
-        android:layout_alignEnd="@+id/usernametextView"
-        android:layout_alignLeft="@+id/usernametextView"
-        android:layout_alignStart="@+id/usernametextView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,13 +56,13 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Question: Lorem Ispum"
         android:id="@+id/questiontextView"
-        android:layout_marginTop="49dp"
-        android:layout_below="@+id/dateView"
-        android:layout_alignLeft="@+id/imageView2"
-        android:layout_alignStart="@+id/imageView2"
+        android:layout_marginTop="31dp"
         android:gravity="center"
-        android:layout_toLeftOf="@+id/BScoretextView"
-        android:layout_toStartOf="@+id/BScoretextView" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -61,12 +70,13 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="A: Answer A Here "
         android:id="@+id/answerAtextView"
-        android:layout_below="@+id/questiontextView"
-        android:layout_alignLeft="@+id/questiontextView"
-        android:layout_alignStart="@+id/questiontextView"
         android:textColor="#000000"
-        android:layout_alignRight="@+id/dateView"
-        android:layout_alignEnd="@+id/dateView" />
+        android:layout_below="@+id/questiontextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="24dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -77,10 +87,10 @@
         android:layout_marginTop="22dp"
         android:textColor="#000000"
         android:layout_below="@+id/answerAtextView"
-        android:layout_alignLeft="@+id/answerAtextView"
-        android:layout_alignStart="@+id/answerAtextView"
-        android:layout_alignRight="@+id/answerAtextView"
-        android:layout_alignEnd="@+id/answerAtextView" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -91,8 +101,9 @@
         android:textColor="#000000"
         android:gravity="center"
         android:layout_below="@+id/answerBtextView"
-        android:layout_alignLeft="@+id/answerBtextView"
-        android:layout_alignStart="@+id/answerBtextView" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="55dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -103,10 +114,10 @@
         android:textColor="#000000"
         android:gravity="center"
         android:layout_alignTop="@+id/AScoretextView"
-        android:layout_alignRight="@+id/dateView"
-        android:layout_alignEnd="@+id/dateView"
-        android:layout_marginRight="27dp"
-        android:layout_marginEnd="27dp" />
+        android:layout_alignRight="@+id/button"
+        android:layout_alignEnd="@+id/button"
+        android:layout_marginRight="39dp"
+        android:layout_marginEnd="39dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -116,9 +127,16 @@
         android:textColor="#ffffff"
         android:background="#52a7df"
         android:layout_below="@+id/AScoretextView"
-        android:layout_marginTop="23dp"
-        android:layout_alignRight="@+id/BScoretextView"
-        android:layout_alignEnd="@+id/BScoretextView"
-        android:layout_alignLeft="@+id/answerBtextView"
-        android:layout_alignStart="@+id/answerBtextView" />
+        android:layout_marginTop="32dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Space
+        android:layout_width="20px"
+        android:layout_height="20px"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
+</com.daimajia.swipe.SwipeLayout>

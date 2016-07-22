@@ -2,6 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lbbw.scenari">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <permission android:protectionLevel="signature"
+        android:name="com.lbbw.scenari.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.lbbw.scenari.permission.C2D_MESSAGE" />
+
 
 
     <application
@@ -45,7 +55,6 @@
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -57,24 +66,43 @@
         </activity>
 
         <activity
+            android:name=".SearchActivity"
+            android:label="Search"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+
+        <activity
             android:name=".ProfileActivity"
             android:label="Profile"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
+        <!-- Parse setup -->
+        <meta-data
+            android:name="com.parse.APPLICATION_ID"
+            android:value="dNNESXhlXqyY5oQNvAmK5u5VOyNspRKRRGE46II9" />
+        <meta-data
+            android:name="com.parse.CLIENT_KEY"
+            android:value="bZHmRQmG4NGdgk82rBBKORGt3LnVsOBeyl53Qywy" />
+        <!-- GCM setup -->
+        <meta-data
+            android:name="com.parse.push.gcm_sender_id"
+            android:value="id:710119163065" />
+        <!-- The following service and broadcast receiver definitions must come immediately
+             before the closing </application> tag -->
 
+        <service android:name="com.parse.PushService" />
 
-        <service android:name="com.parse.PushService"
-            android:exported="false"
-            />
-
-        <receiver android:name="com.parse.ParseBroadcastReceiver"
+        <receiver android:name="com.parse.ParsePushBroadcastReceiver"
             android:exported="false">
             <intent-filter>
+                <!--
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.USER_PRESENT" />
-
+-->
                 <action android:name="com.parse.push.intent.RECEIVE" />
                 <action android:name="com.parse.push.intent.DELETE" />
                 <action android:name="com.parse.push.intent.OPEN" />
@@ -100,21 +128,12 @@
 
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="1666624106897146"/>
 
-        <meta-data android:name="com.parse.push.gcm_sender_id"
-            android:value="id:399947641423" />
         <meta-data android:name="ApplicationId" android:value="1666624106897146"/>
+
 
     </application>
 
 
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <permission android:protectionLevel="signature"
-        android:name="com.lbbw.scenari.permission.C2D_MESSAGE" />
-    <uses-permission android:name="com.lbbw.scenari.permission.C2D_MESSAGE" />
+
 </manifest>

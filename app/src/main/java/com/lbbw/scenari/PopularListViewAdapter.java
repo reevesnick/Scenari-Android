@@ -61,7 +61,7 @@ public class PopularListViewAdapter extends ParseQueryAdapter {
         parseObject = object.getParseObject("postCreator");
         String username = parseObject.getString("username");
 */
-        ParseImageView profileImage = (ParseImageView)v.findViewById(R.id.imageView2);
+        Circle_ImageView profileImage = (Circle_ImageView) v.findViewById(R.id.imageView2);
         ParseFile imageFile = object.getParseObject("postCreator").getParseFile("profile_pic");
         if (imageFile != null){
             profileImage.setParseFile(imageFile);

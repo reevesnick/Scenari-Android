@@ -62,7 +62,7 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
         parseObject = object.getParseObject("postCreator");
         String username = parseObject.getString("username");
 */
-        ParseImageView profileImage = (ParseImageView)v.findViewById(R.id.imageView2);
+        Circle_ImageView profileImage = (Circle_ImageView) v.findViewById(R.id.imageView2);
         ParseFile imageFile = object.getParseObject("postCreator").getParseFile("profile_pic");
         if (imageFile != null){
             profileImage.setParseFile(imageFile);
@@ -132,12 +132,11 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
         shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-                sharingIntent.setType("text/plain");
-                String shareBody = object.getString("question");
-                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
-                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-                //startActivity(Intent.createChooser(sharingIntent, "Share via"));
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+                sendIntent.setType("text/plain");
+                //startActivity(sendIntent);
             }
         });
 

@@ -5,9 +5,12 @@ import android.content.Context;
 
 import com.crashlytics.android.Crashlytics;
 
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import com.parse.Parse;
 import com.parse.ParseInstallation;
 import com.parse.ParseUser;
+import com.parse.PushService;
 import com.parse.ui.ParseLoginBuilder;
 
 import io.fabric.sdk.android.Fabric;
@@ -40,10 +43,17 @@ public class ScenariApplication extends Application {
 
         // Parse Push
         ParseInstallation installation = ParseInstallation.getCurrentInstallation();
-        installation.put("GCMSenderId", "399947641423");
+        installation.put("GCMSenderId", "710119163065");
         installation.saveInBackground();;
 
         ParseUser.enableAutomaticUser();
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
+
+
+
+
 
 
         //ParseFacebookUtils.initialize(this.getApplicationContext());

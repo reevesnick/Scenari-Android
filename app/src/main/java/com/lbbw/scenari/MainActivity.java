@@ -23,6 +23,7 @@ import com.crashlytics.android.Crashlytics;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
+import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
 import com.parse.ui.ParseLoginBuilder;
 
@@ -228,17 +229,30 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+
+
 */
+        if (id == R.id.logout){
+            ParseUser.logOut();
+            ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
+            startActivityForResult(builder.build(), 0);
+        }
+
         if (id == R.id.action_search){
+            /*
             Toast.makeText(MainActivity.this, "Search is not Avaliable",
                     Toast.LENGTH_SHORT).show();
+*/
 
+            Intent search = new Intent(this, SearchActivity.class);
+            startActivity(search);
         }
 
         if (id == R.id.action_profile){
             Intent profile = new Intent(this, ProfileActivity.class);
             startActivity(profile);
         }
+
 
 
 
