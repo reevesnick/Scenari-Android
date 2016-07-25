@@ -48,7 +48,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:label="Home"
             android:screenOrientation="portrait"
             android:theme="@style/MyMaterialTheme">
           <!-- android:theme="@style/AppTheme.NoActionBar" -->
@@ -70,6 +70,10 @@
             android:label="Search"
             android:screenOrientation="portrait">
 
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.lbbw.scenari.MainActivity" />
+
         </activity>
 
 
@@ -77,7 +81,11 @@
             android:name=".ProfileActivity"
             android:label="Profile"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/MyMaterialTheme">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.lbbw.scenari.MainActivity" />
 
         </activity>
         <!-- Parse setup -->
@@ -130,7 +138,7 @@
 
         <meta-data android:name="ApplicationId" android:value="1666624106897146"/>
 
-
+        <meta-data android:name="com.parse.push.notification_icon" android:resource="@drawable/ic_stat_scenari_app_notification_icon"/>
     </application>
 
 

@@ -1,7 +1,10 @@
 package com.lbbw.scenari;
 
+import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import com.crashlytics.android.Crashlytics;
 
@@ -54,8 +57,6 @@ public class ScenariApplication extends Application {
 
 
 
-
-
         //ParseFacebookUtils.initialize(this.getApplicationContext());
 
 
@@ -65,4 +66,5 @@ public class ScenariApplication extends Application {
         //AppEventsLogger.activateApp(this);
 
     }
+
 }
