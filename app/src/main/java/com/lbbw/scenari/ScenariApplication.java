@@ -11,6 +11,7 @@ import com.crashlytics.android.Crashlytics;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.parse.Parse;
+import com.parse.ParseFacebookUtils;
 import com.parse.ParseInstallation;
 import com.parse.ParseUser;
 import com.parse.PushService;
@@ -57,13 +58,13 @@ public class ScenariApplication extends Application {
 
 
 
-        //ParseFacebookUtils.initialize(this.getApplicationContext());
+        ParseFacebookUtils.initialize(this.getApplicationContext());
 
 
         // Facebook SDK
         // Initialize the SDK before executing any other operations,
-        //FacebookSdk.sdkInitialize(getApplicationContext());
-        //AppEventsLogger.activateApp(this);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
 
     }
 

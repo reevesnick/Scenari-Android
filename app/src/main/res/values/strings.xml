@@ -2,4 +2,12 @@
     <string name="app_name">Scenari</string>
     <string name="action_settings">Settings</string>
     <string name="reset_password">Reset Password</string>
+    <string name="app_id">1666624106897146</string>
+
+
+    <string-array name="my_facebook_permissions">
+        <item>public_profile</item>
+        <item>user_friends</item>
+    </string-array>
+
 </resources>
