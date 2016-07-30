@@ -2,6 +2,7 @@ package com.lbbw.scenari;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.ShareActionProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,11 +25,13 @@ import java.util.List;
  */
 public class RecentListViewAdapter extends ParseQueryAdapter {
 
-    Context context;
+    private Context context = null;
     LayoutInflater inflater;
     ImageLoader imageLoader;
     private List<QuestionData> recentlist = null;
     private ArrayList<QuestionData> arraylist;
+    private ShareActionProvider mShareActionProvider;
+
 
     private Button buttonA;
     private Button buttonB;
@@ -97,6 +100,9 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
         answerBScoreText.setText("B: "+object.getNumber("answer_b_total").toString()+" votes");
 
 
+
+
+
         buttonA = (Button)v.findViewById(R.id.buttonA);
         buttonB = (Button)v.findViewById(R.id.buttonB);
         shareButton = (Button)v.findViewById(R.id.button);
@@ -136,7 +142,7 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
                 sendIntent.setAction(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
                 sendIntent.setType("text/plain");
-                //startActivity(sendIntent);
+                context.startActivity(sendIntent);
             }
         });
 
@@ -148,7 +154,19 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
     }
 
 
-
+    // Call to update the share intent
+    private void setShareIntent(Intent shareIntent) {
+        if (mShareActionProvider != null) {
+            mShareActionProvider.setShareIntent(shareIntent);
+        }
+    }
+    private Intent createShareIntent() {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT,
+                "http://stackandroid.com");
+        return shareIntent;
+    }
 
 
 

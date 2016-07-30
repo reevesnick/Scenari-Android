@@ -42,7 +42,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:hint="Enter your scenario here"
-        android:layout_below="@+id/toolbar" />
+        />
 
     <EditText
         android:layout_width="wrap_content"

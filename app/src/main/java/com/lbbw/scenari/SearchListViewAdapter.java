@@ -19,11 +19,12 @@ import com.parse.ParseUser;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Created by neegbeahreeves on 7/14/16.
  */
 public class SearchListViewAdapter extends ParseQueryAdapter {
-    Context context;
+    private Context context;
     LayoutInflater inflater;
     ImageLoader imageLoader;
     private List<QuestionData> recentlist = null;
@@ -139,6 +140,7 @@ public class SearchListViewAdapter extends ParseQueryAdapter {
                 String shareBody = object.getString("question");
                 sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                context.startActivity(sharingIntent);
                 //startActivity(Intent.createChooser(sharingIntent, "Share via"));
             }
         });

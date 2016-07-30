@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -34,6 +35,8 @@ import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 
 import com.lbbw.scenari.Circle_ImageView;
+import com.frosquivel.magicalcamera.MagicalCamera;
+
 
 /**
  * Created by neegbeahreeves on 6/23/16.
@@ -51,6 +54,10 @@ public class ProfileActivity extends AppCompatActivity {
     private ProfileListViewAdapter profileListViewAdapter;
     private ListView listView;
     private Context mContext = this;
+
+    private int RESIZE_PHOTO_PIXELS_PERCENTAGE = 1000;
+    MagicalCamera magicalCamera = new MagicalCamera(this,RESIZE_PHOTO_PIXELS_PERCENTAGE);
+
 
 
     @Override
@@ -168,13 +175,37 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
-
-
-
-
     @Override
     public void onSaveInstanceState(Bundle outState){
         super.onSaveInstanceState(outState);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_profile, menu);
+        return true;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //call this method ever
+        magicalCamera.resultPhoto(requestCode, resultCode, data);
+        ParseFile imageFile = ParseUser.getCurrentUser().getParseFile("profile_pic");
+        Circle_ImageView profileImage = (Circle_ImageView) findViewById(R.id.imageView);
+        //with this form you obtain the bitmap
+        profileImage.setImageBitmap(magicalCamera.getMyPhoto());
+
+
+
+        //if you need save your bitmap in device use this method
+        if(magicalCamera.savePhotoInMemoryDevice(magicalCamera.getMyPhoto(),"myPhotoName","myDirectoryName", MagicalCamera.JPEG, true)){
+            Toast.makeText(ProfileActivity.this, "The photo is save in device, please check this", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(ProfileActivity.this, "Sorry your photo dont write in devide, please contact with fabian7593@gmail and say this error", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -190,6 +221,28 @@ public class ProfileActivity extends AppCompatActivity {
             return true;
         }
         */
+
+        if (id == R.id.action_share_profile){
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, ParseUser.getCurrentUser().getUsername().toString()+" got " +ParseUser.getCurrentUser().getNumber("posts").toString()+ " posts and "+ParseUser.getCurrentUser().getNumber("totalVotes").toString()+ " total votes. Download the Scenari App for iOS and Android");
+            sendIntent.setType("text/plain");
+            startActivity(Intent.createChooser(sendIntent, "Share via"));
+        }
+
+        if (id == R.id.action_upload_photo_camera){
+   //         MagicalCamera magicalCamera = new MagicalCamera(this,RESIZE_PHOTO_PIXELS_PERCENTAGE);
+            magicalCamera.takePhoto();
+
+
+        }
+
+        if (id == R.id.action_upload_photo_picker){
+ //           MagicalCamera magicalCamera = new MagicalCamera(this,RESIZE_PHOTO_PIXELS_PERCENTAGE);
+            magicalCamera.selectedPicture("my_header_name");
+
+
+        }
 
         if (id == R.id.action_profile){
             Intent profile = new Intent(this, ProfileActivity.class);
