@@ -3,6 +3,7 @@ package com.lbbw.scenari;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,11 +36,11 @@ public class SearchListViewAdapter extends ParseQueryAdapter {
     private Button buttonB;
     private Button shareButton;
 
+
+
     public SearchListViewAdapter(Context context, SearchListViewAdapter profileActivity) {
         super(context, new ParseQueryAdapter.QueryFactory<ParseObject>() {
             // Get the intent, verify the action and get the query
-
-
 
             public ParseQuery create() {
                 ParseQuery query = new ParseQuery("Questions");

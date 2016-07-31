@@ -60,6 +60,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -193,10 +194,15 @@ public class ProfileActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         //call this method ever
         magicalCamera.resultPhoto(requestCode, resultCode, data);
-        ParseFile imageFile = ParseUser.getCurrentUser().getParseFile("profile_pic");
+        Bitmap.CompressFormat png = MagicalCamera.PNG;
+
+        // ParseFile imageFile = ParseUser.getCurrentUser().getParseFile("profile_pic");
+        ParseUser user = ParseUser.getCurrentUser();
+
         Circle_ImageView profileImage = (Circle_ImageView) findViewById(R.id.imageView);
         //with this form you obtain the bitmap
         profileImage.setImageBitmap(magicalCamera.getMyPhoto());
+        //user.put("profile_pic", profileImage);
 
 
 

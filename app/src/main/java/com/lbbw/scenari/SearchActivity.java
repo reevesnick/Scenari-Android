@@ -41,10 +41,7 @@ public class SearchActivity extends AppCompatActivity {
 
         ParseObject object = null;
 
-        Intent intent = getIntent();
-        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-            String squery = intent.getStringExtra(SearchManager.QUERY);
-        }
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -73,11 +70,10 @@ public class SearchActivity extends AppCompatActivity {
 
         // Get the SearchView and set the searchable configuration
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        //SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+//        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
         // Assumes current activity is the searchable activity
-        //searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        //searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
-
+  //      searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+    //    searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
 
         return true;
     }
