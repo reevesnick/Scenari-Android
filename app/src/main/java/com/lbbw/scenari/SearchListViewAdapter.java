@@ -1,5 +1,6 @@
 package com.lbbw.scenari;
 
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -36,10 +37,14 @@ public class SearchListViewAdapter extends ParseQueryAdapter {
 
     public SearchListViewAdapter(Context context, SearchListViewAdapter profileActivity) {
         super(context, new ParseQueryAdapter.QueryFactory<ParseObject>() {
+            // Get the intent, verify the action and get the query
+
+
+
             public ParseQuery create() {
                 ParseQuery query = new ParseQuery("Questions");
                 query.include("postCreator");
-                query.whereEqualTo("postCreator", ParseUser.getCurrentUser());
+                query.whereEqualTo("question", "");
                 query.orderByDescending("createdAt");
                 return query;
             }
@@ -135,13 +140,11 @@ public class SearchListViewAdapter extends ParseQueryAdapter {
         shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-                sharingIntent.setType("text/plain");
-                String shareBody = object.getString("question");
-                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
-                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-                context.startActivity(sharingIntent);
-                //startActivity(Intent.createChooser(sharingIntent, "Share via"));
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT,object.getString("question")+ " Answer on Scenari for iOS and Android");
+                sendIntent.setType("text/plain");
+                v.getContext().startActivity(sendIntent);
             }
         });
 

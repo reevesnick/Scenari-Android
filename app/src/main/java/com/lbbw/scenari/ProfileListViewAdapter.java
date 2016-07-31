@@ -112,12 +112,11 @@ public class ProfileListViewAdapter extends ParseQueryAdapter {
         shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-                sharingIntent.setType("text/plain");
-                String shareBody = object.getString("question");
-                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
-                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-                //startActivity(Intent.createChooser(sharingIntent, "Share via"));
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT,object.getString("question")+ " Answer on Scenari for iOS and Android");
+                sendIntent.setType("text/plain");
+                v.getContext().startActivity(sendIntent);
             }
         });
 

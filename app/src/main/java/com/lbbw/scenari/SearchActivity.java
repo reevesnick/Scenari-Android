@@ -41,7 +41,10 @@ public class SearchActivity extends AppCompatActivity {
 
         ParseObject object = null;
 
-
+        Intent intent = getIntent();
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String squery = intent.getStringExtra(SearchManager.QUERY);
+        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -52,33 +55,11 @@ public class SearchActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-/*
-        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.com_parse_ui_app_logo));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //What to do on back clicked
-            }
-        });
-*/
-        /*
-        ParseImageView profileImage = (ParseImageView)findViewById(R.id.imageView);
-        ParseFile imageFile = ParseUser.getCurrentUser().getParseFile("profile_pic");
 
-        if (imageFile != null){
-            profileImage.setParseFile(imageFile);
-            profileImage.loadInBackground();
-        }
-        else{
-        }
-
-
-*/
         listView = (ListView)findViewById(R.id.listView2);
 
         searchListViewAdapter = new SearchListViewAdapter(this, searchListViewAdapter);
         listView.setAdapter(searchListViewAdapter);
-        // listView.setAdapter(recentListViewAdapter);
         searchListViewAdapter.loadObjects();
 
 
@@ -115,12 +96,6 @@ public class SearchActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        /*
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        */
 
         if (id == R.id.action_profile){
             Intent profile = new Intent(this, ProfileActivity.class);
