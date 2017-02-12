@@ -47,6 +47,8 @@
             <meta-data
                 android:name="com.parse.ui.ParseLoginActivity.PARSE_LOGIN_HELP_TEXT"
                 android:value="@string/reset_password"/>
+
+
         </activity>
 
         <activity

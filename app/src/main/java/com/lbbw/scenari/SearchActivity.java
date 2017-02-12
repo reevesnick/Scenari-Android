@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.SearchView;
+import android.support.v7.widget.SearchView;
 import android.widget.TextView;
 
 import com.parse.ParseFile;
@@ -22,7 +22,7 @@ import com.parse.ParseUser;
 /**
  * Created by neegbeahreeves on 6/23/16.
  */
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     private TextView usernameLabel;
     private TextView postNum;
     private TextView votesNum;
@@ -40,6 +40,7 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.search_main);
 
         ParseObject object = null;
+
 
 
 
@@ -70,10 +71,13 @@ public class SearchActivity extends AppCompatActivity {
 
         // Get the SearchView and set the searchable configuration
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-//        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
         // Assumes current activity is the searchable activity
-  //      searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-    //    searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
+
+        searchView.setSubmitButtonEnabled(true);
+        searchView.setOnQueryTextListener(this);
 
         return true;
     }
@@ -102,5 +106,18 @@ public class SearchActivity extends AppCompatActivity {
 
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        searchListViewAdapter.getFilter().filter(newText);
+
+        return true;
     }
 }

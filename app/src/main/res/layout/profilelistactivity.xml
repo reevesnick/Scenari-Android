@@ -115,8 +115,8 @@
         android:textColor="#000000"
         android:gravity="center"
         android:layout_alignTop="@+id/AScoretextView"
-        android:layout_alignRight="@+id/button"
-        android:layout_alignEnd="@+id/button"
+        android:layout_alignRight="@+id/button3"
+        android:layout_alignEnd="@+id/button3"
         android:layout_marginRight="39dp"
         android:layout_marginEnd="39dp" />
 
@@ -124,7 +124,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Share"
-        android:id="@+id/button"
+        android:id="@+id/button3"
         android:textColor="#ffffff"
         android:background="#52a7df"
         android:layout_below="@+id/AScoretextView"
@@ -137,7 +137,7 @@
     <Space
         android:layout_width="20px"
         android:layout_height="20px"
-        android:layout_below="@+id/button"
+        android:layout_below="@+id/button3"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
 </com.daimajia.swipe.SwipeLayout>

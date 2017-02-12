@@ -1,8 +1,8 @@
 package com.lbbw.scenari;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.ShareActionProvider;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.ParseFile;
-import com.parse.ParseImageView;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
@@ -37,6 +36,7 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
     private Button buttonA;
     private Button buttonB;
     private Button shareButton;
+    private Button reportButton;
 
     public RecentListViewAdapter(Context context) {
         super(context, new ParseQueryAdapter.QueryFactory<ParseObject>() {
@@ -108,7 +108,8 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
 
         buttonA = (Button)v.findViewById(R.id.buttonA);
         buttonB = (Button)v.findViewById(R.id.buttonB);
-        shareButton = (Button)v.findViewById(R.id.button);
+        shareButton = (Button)v.findViewById(R.id.button2);
+        reportButton = (Button)v.findViewById(R.id.button3);
         buttonA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,7 +150,16 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
             }
         });
 
+        reportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "mailto:scenarireport@brownboxworks.atlassian.net?subject=Report Post: Object #: " +object.getObjectId()+"&body=Post Review Question: "+object.getString("question");
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                v.getContext().startActivity(i);
 
+            }
+        });
 
         super.getItemView(object, v, parent);
 
