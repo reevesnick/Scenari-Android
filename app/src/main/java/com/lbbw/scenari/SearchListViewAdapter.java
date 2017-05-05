@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * Created by neegbeahreeves on 7/14/16.
  */
-public class SearchListViewAdapter extends ParseQueryAdapter implements Filterable {
+public class SearchListViewAdapter extends ParseQueryAdapter {
     private Context context;
     LayoutInflater inflater;
     ImageLoader imageLoader;
@@ -160,44 +160,44 @@ public class SearchListViewAdapter extends ParseQueryAdapter implements Filterab
     }
 
 
-    @Override
-    public Filter getFilter() {
-        Filter filter = new Filter() {
-            @SuppressWarnings("unchecked")
-            @Override
-            protected void publishResults(CharSequence constraint, FilterResults results) {
-                // Write your logic for PUBLISHING RESULTS and notify your dataset for change
-
-
-                notifyDataSetChanged();
-            }
-
-            @Override
-            protected FilterResults performFiltering(CharSequence constraint) {
-                // Write your logic here to PERFORM FILTERING and return filtered result
-                FilterResults results = new FilterResults();
-                ArrayList<String> FilteredArrayNames = new ArrayList<String>();
-
-                // perform your search here using the searchConstraint String.
-
-                constraint = constraint.toString().toLowerCase();
-/*                for (int i = 0; i < mDatabaseOfNames.size(); i++) {
-                    String dataNames = mDatabaseOfNames.get(i);
-                    if (dataNames.toLowerCase().startsWith(constraint.toString()))  {
-                        FilteredArrayNames.add(dataNames);
-                    }
-                }*/
-
-                results.count = FilteredArrayNames.size();
-                results.values = FilteredArrayNames;
-                Log.e("VALUES", results.values.toString());
-
-                return results;
-
-            }
-        };
-        return filter;
-    }
+//    @Override
+//    public Filter getFilter() {
+//        Filter filter = new Filter() {
+//            @SuppressWarnings("unchecked")
+//            @Override
+//            protected void publishResults(CharSequence constraint, FilterResults results) {
+//                // Write your logic for PUBLISHING RESULTS and notify your dataset for change
+//
+//
+//                notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            protected FilterResults performFiltering(CharSequence constraint) {
+//                // Write your logic here to PERFORM FILTERING and return filtered result
+//                FilterResults results = new FilterResults();
+//                ArrayList<String> FilteredArrayNames = new ArrayList<String>();
+//
+//                // perform your search here using the searchConstraint String.
+//
+//                constraint = constraint.toString().toLowerCase();
+///*                for (int i = 0; i < mDatabaseOfNames.size(); i++) {
+//                    String dataNames = mDatabaseOfNames.get(i);
+//                    if (dataNames.toLowerCase().startsWith(constraint.toString()))  {
+//                        FilteredArrayNames.add(dataNames);
+//                    }
+//                }*/
+//
+//                results.count = FilteredArrayNames.size();
+//                results.values = FilteredArrayNames;
+//                Log.e("VALUES", results.values.toString());
+//
+//                return results;
+//
+//            }
+//        };
+//        return filter;
+//    }
 
 
 }
