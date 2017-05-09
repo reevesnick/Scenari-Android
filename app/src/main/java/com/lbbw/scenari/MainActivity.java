@@ -1,24 +1,31 @@
 package com.lbbw.scenari;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
@@ -28,6 +35,7 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
 import com.parse.LogInCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseFile;
@@ -56,6 +64,16 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     final List<String> permissions = Arrays.asList("public_profile", "email");
 
+    private DrawerLayout mDrawer;
+    private NavigationView nvDrawer;
+    private Toolbar toolbar;
+    private View navHeaderView;
+
+    // Make sure to be using android.support.v7.app.ActionBarDrawerToggle version.
+    // The android.support.v4.app.ActionBarDrawerToggle has been deprecated.
+    private ActionBarDrawerToggle drawerToggle;
+
+
     String name;
     String email;
     ParseUser parseUser;
@@ -67,15 +85,82 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        detectUserLogin();
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // Find our drawer view
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerToggle = setupDrawerToggle();
+
+        // Find our drawer view
+        nvDrawer = (NavigationView) findViewById(R.id.nvView);
+        // Setup drawer view
+        setupDrawerContent(nvDrawer);
+
+        // Tie DrawerLayout events to the ActionBarToggle
+        mDrawer.addDrawerListener(drawerToggle);
         setTitle("Home");
 
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
 
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent createButton = new Intent(MainActivity.this, CreateScenarioActivity.class);
+                startActivity(createButton);
+            }
+        });
+    }
 
-        ParseUser currentUser = ParseUser.getCurrentUser();
-        if (currentUser == null) {
+    private ActionBarDrawerToggle setupDrawerToggle() {
+        // NOTE: Make sure you pass in a valid toolbar reference.  ActionBarDrawToggle() does not require it
+        // and will not render the hamburger icon without it.
+        return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open, R.string.drawer_close);
+
+    }
+
+    private void setupDrawerContent(NavigationView navigationView) {
+        drawerUserInfo();
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        selectDrawerItem(menuItem);
+                        return true;
+                    }
+                });
+    }
+
+    public void selectDrawerItem(MenuItem menuItem) {
+        // Create a new fragment and specify the fragment to show based on nav item clicked
+        switch (menuItem.getItemId()) {
+            case R.id.profile_activity:
+                Intent profileIntent = new Intent(this, ProfileActivity.class);
+                startActivity(profileIntent);
+                break;
+            case R.id.search_activity:
+                Intent searchIntent = new Intent(this, SearchActivity.class);
+                startActivity(searchIntent);
+                break;
+//            case R.id.logout_activity:
+//                //fragmentClass = ThirdFragment.class;
+//                break;
+
+        }
+
+    }
+
+    public void detectUserLogin(){
+        //ParseUser currentUser = ParseUser.getCurrentUser();
+        if (ParseUser.getCurrentUser().toString() == null) {
             ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
             startActivityForResult(builder.build(), 0);
 
@@ -94,30 +179,31 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
-
-
-
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
-
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent createButton = new Intent(MainActivity.this, CreateScenarioActivity.class);
-                startActivity(createButton);
-              /*  Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
-            }
-        });
     }
 
+    public void drawerUserInfo(){
+        // Lookup navigation view
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nvView);
+        // Inflate the header view at runtime
+       // View headerLayout = navigationView.inflateHeaderView(R.layout.nav_header);
+        // We can now look up items within the header if needed
+        View headerLayout = navigationView.getHeaderView(0);
+
+
+        Circle_ImageView profileImage =  (Circle_ImageView) headerLayout.findViewById(R.id.headerImageView);
+        ParseFile imageFile = ParseUser.getCurrentUser().getParseFile("profile_pic");
+
+        if (imageFile != null) {
+            profileImage.setParseFile(imageFile);
+            profileImage.loadInBackground();
+        } else {
+           //profileImage.setImageDrawable();
+        }
+
+        TextView questionTextView = (TextView)headerLayout.findViewById(R.id.usernameTextView);
+        questionTextView.setText("@" + ParseUser.getCurrentUser().getUsername().toString());
+
+    }
     private void getUserDetailsFromFB() {
 
         // Suggested by https://disqus.com/by/dominiquecanlas/
@@ -146,6 +232,32 @@ public class MainActivity extends AppCompatActivity {
         ).executeAsync();
     }
 
+    // `onPostCreate` called when activity start-up is complete after `onStart()`
+    // NOTE 1: Make sure to override the method with only a single `Bundle` argument
+    // Note 2: Make sure you implement the correct `onPostCreate(Bundle savedInstanceState)` method.
+    // There are 2 signatures and only `onPostCreate(Bundle state)` shows the hamburger icon.
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+
+        detectUserLogin();
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+        drawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        // Pass any configuration change to the drawer toggles
+        drawerToggle.onConfigurationChanged(newConfig);
+    }
+
     private void saveNewUser() {
         parseUser = ParseUser.getCurrentUser();
         parseUser.setUsername(name);
@@ -171,9 +283,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
 
     public static Bitmap DownloadImageBitmap(String url) {
         Bitmap bm = null;
@@ -235,8 +344,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -244,17 +351,17 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        // The action bar home/up action should open or close the drawer.
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                mDrawer.openDrawer(GravityCompat.START);
+                return true;
+        }
 
-/*
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (drawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
 
-
-
-
-*/
         if (id == R.id.logout){
             ParseUser.logOut();
             ParseUser current = ParseUser.getCurrentUser();
@@ -262,19 +369,15 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(builder.build(), 0);
         }
 
-        if (id == R.id.action_search){
-            Intent search = new Intent(this, SearchActivity.class);
-            startActivity(search);
-        }
+//        if (id == R.id.action_search){
+//            Intent search = new Intent(this, SearchActivity.class);
+//            startActivity(search);
+//        }
 
         if (id == R.id.action_profile){
             Intent profile = new Intent(this, ProfileActivity.class);
             startActivity(profile);
         }
-
-
-
-
 
         return super.onOptionsItemSelected(item);
     }

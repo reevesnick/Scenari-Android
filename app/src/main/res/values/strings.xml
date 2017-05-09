@@ -3,6 +3,9 @@
     <string name="action_settings">Settings</string>
     <string name="reset_password">Reset Password</string>
     <string name="app_id">1666624106897146</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
 
 
     <string-array name="my_facebook_permissions">

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="192dp"
+    android:background="?attr/colorPrimaryDark"
+    android:padding="16dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:orientation="vertical"
+    android:gravity="bottom">
+
+    <com.lbbw.scenari.Circle_ImageView
+        android:layout_width="99dp"
+        android:layout_height="99dp"
+        android:id="@+id/headerImageView"
+        android:layout_above="@+id/usernameTextView"
+        android:layout_centerHorizontal="true" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="\@username"
+        android:id="@+id/usernameTextView"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/headerImageView"
+        android:layout_alignEnd="@+id/headerImageView" />
+
+
+
+
+</RelativeLayout>

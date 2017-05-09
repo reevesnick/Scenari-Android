@@ -66,8 +66,8 @@ compile fileTree(dir: 'libs', include: ['*.jar'])
 //    'com.google.android.gms:play-services-analytics:9.0.2'
 
     //Parse UI
-    compile 'com.parse:parseui-login-android:0.0.1'
-    compile 'com.parse:parseui-widget-android:0.0.1'
+    compile 'com.parse:parseui-login-android:0.0.2'
+    compile 'com.parse:parseui-widget-android:0.0.2'
 
     compile 'com.facebook.android:facebook-android-sdk:4.+'
 

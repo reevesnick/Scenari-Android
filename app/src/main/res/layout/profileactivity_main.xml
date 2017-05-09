@@ -23,20 +23,18 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/uiview"
         android:layout_width="match_parent"
-        android:layout_height="700px"
+        android:layout_height="400px"
         android:background="#52A7DF"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/view2"
-        android:layout_alignParentBottom="false">
+        android:layout_below="@+id/view2">
         <!--android:layout_below="@+id/toolbar"> -->
 
 
-
         <com.lbbw.scenari.Circle_ImageView
+            android:id="@+id/imageView"
             android:layout_width="99dp"
             android:layout_height="99dp"
-            android:id="@+id/imageView"
             android:layout_above="@+id/usernameTextView"
             android:layout_centerHorizontal="true" />
 

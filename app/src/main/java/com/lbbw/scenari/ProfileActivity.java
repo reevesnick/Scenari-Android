@@ -82,15 +82,7 @@ public class ProfileActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-/*
-        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.com_parse_ui_app_logo));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //What to do on back clicked
-            }
-        });
-*/
+
         Circle_ImageView profileImage = (Circle_ImageView) findViewById(R.id.imageView);
         ParseFile imageFile = ParseUser.getCurrentUser().getParseFile("profile_pic");
 
@@ -110,21 +102,10 @@ public class ProfileActivity extends AppCompatActivity {
         TextView votesCount = (TextView) findViewById(R.id.totalVotesNumber);
         votesCount.setText(ParseUser.getCurrentUser().getNumber("totalVotes").toString());
 
-        //username = ParseUser.getCurrentUser().getString("username");
-        //postInt = ParseUser.getCurrentUser().getNumber("post");
-
         listView = (ListView) findViewById(R.id.listView);
-
-
-
-
         profileListViewAdapter = new ProfileListViewAdapter(this, profileListViewAdapter);
         listView.setAdapter(profileListViewAdapter);
-        // listView.setAdapter(recentListViewAdapter);
         profileListViewAdapter.loadObjects();
-
-
-
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -173,8 +154,6 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     }
-
-
 
     @Override
     public void onSaveInstanceState(Bundle outState){
@@ -239,24 +218,17 @@ public class ProfileActivity extends AppCompatActivity {
         if (id == R.id.action_upload_photo_camera){
    //         MagicalCamera magicalCamera = new MagicalCamera(this,RESIZE_PHOTO_PIXELS_PERCENTAGE);
             magicalCamera.takePhoto();
-
-
         }
 
         if (id == R.id.action_upload_photo_picker){
  //           MagicalCamera magicalCamera = new MagicalCamera(this,RESIZE_PHOTO_PIXELS_PERCENTAGE);
             magicalCamera.selectedPicture("my_header_name");
-
-
         }
 
         if (id == R.id.action_profile){
             Intent profile = new Intent(this, ProfileActivity.class);
             startActivity(profile);
         }
-
-
-
 
         return super.onOptionsItemSelected(item);
     }
