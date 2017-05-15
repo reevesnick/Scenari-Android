@@ -50,7 +50,7 @@ public class ScenariApplication extends Application {
         installation.put("GCMSenderId", "710119163065");
         installation.saveInBackground();;
 
-        ParseUser.enableAutomaticUser();
+        //ParseUser.enableAutomaticUser();
 
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);

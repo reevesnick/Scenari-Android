@@ -128,7 +128,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
-        drawerUserInfo();
+        if (ParseUser.getCurrentUser() != null){
+            drawerUserInfo();
+
+        }
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -144,10 +147,12 @@ public class MainActivity extends AppCompatActivity {
         switch (menuItem.getItemId()) {
             case R.id.profile_activity:
                 Intent profileIntent = new Intent(this, ProfileActivity.class);
+                profileIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(profileIntent);
                 break;
             case R.id.search_activity:
                 Intent searchIntent = new Intent(this, SearchActivity.class);
+                searchIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(searchIntent);
                 break;
 //            case R.id.logout_activity:
@@ -156,11 +161,17 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        // Highlight the selected item has been done by NavigationView
+        menuItem.setChecked(true);
+        // Close the navigation drawer
+        mDrawer.closeDrawers();
+
+
     }
 
     public void detectUserLogin(){
         //ParseUser currentUser = ParseUser.getCurrentUser();
-        if (ParseUser.getCurrentUser().toString() == null) {
+        if (ParseUser.getCurrentUser() ==null){
             ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
             startActivityForResult(builder.build(), 0);
 
@@ -177,8 +188,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             });
-        }
 
+        }
     }
 
     public void drawerUserInfo(){

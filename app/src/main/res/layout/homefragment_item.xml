@@ -1,174 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/card"
     android:showDividers="middle">
 
     <Button
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Share"
-        android:id="@+id/button2"
-        android:textColor="#ffffff"
+        android:layout_alignEnd="@+id/buttonA"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/buttonA"
+        android:layout_below="@+id/buttonA"
+        android:layout_marginTop="13dp"
         android:background="#52a7df"
-        android:layout_below="@+id/AScoretextView"
-        android:layout_marginTop="23dp"
-        android:layout_alignRight="@+id/BScoretextView"
-        android:layout_alignEnd="@+id/BScoretextView"
-        android:layout_alignLeft="@+id/buttonA"
-        android:layout_alignStart="@+id/buttonA" />
+        android:stateListAnimator="@null"
+        android:text="Share"
+        android:textColor="#ffffff" />
 
     <com.lbbw.scenari.Circle_ImageView
+        android:id="@+id/imageView2"
         android:layout_width="44dp"
         android:layout_height="45dp"
-        android:id="@+id/imageView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginLeft="23dp"
         android:layout_marginStart="23dp"
         android:layout_marginTop="23dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/circle"/>
+        android:background="@drawable/circle" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="\@username"
         android:id="@+id/usernametextView"
-        android:layout_alignTop="@+id/imageView2"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/imageView2"
-        android:layout_toEndOf="@+id/imageView2" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/questiontextView"
+        android:layout_alignRight="@+id/questiontextView"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_toRightOf="@+id/imageView2"
+        android:text="\@username"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="1/1/2016 at 12:00 PM"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/dateView"
-        android:layout_below="@+id/usernametextView"
-        android:layout_alignRight="@+id/usernametextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/usernametextView"
         android:layout_alignLeft="@+id/usernametextView"
-        android:layout_alignStart="@+id/usernametextView" />
+        android:layout_alignRight="@+id/usernametextView"
+        android:layout_alignStart="@+id/usernametextView"
+        android:layout_below="@+id/usernametextView"
+        android:text="1/1/2016 at 12:00 PM"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Question: Lorem Ispum"
         android:id="@+id/questiontextView"
-        android:textColor="#000000"
-        android:layout_marginTop="49dp"
-        android:layout_below="@+id/dateView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/buttonB"
         android:layout_alignLeft="@+id/imageView2"
-        android:layout_alignStart="@+id/imageView2"
         android:layout_alignRight="@+id/buttonB"
-        android:layout_alignEnd="@+id/buttonB" />
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_below="@+id/dateView"
+        android:layout_marginTop="49dp"
+        android:text="Question: Lorem Ispum"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="A: Answer A Here "
         android:id="@+id/answerAtextView"
-        android:textColor="#000000"
-        android:layout_below="@+id/questiontextView"
-        android:layout_alignLeft="@+id/questiontextView"
-        android:layout_alignStart="@+id/questiontextView"
-        android:layout_marginTop="25dp"
-        android:layout_alignRight="@+id/questiontextView"
-        android:layout_alignEnd="@+id/questiontextView" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/questiontextView"
+        android:layout_alignLeft="@+id/questiontextView"
+        android:layout_alignRight="@+id/questiontextView"
+        android:layout_alignStart="@+id/questiontextView"
+        android:layout_below="@+id/questiontextView"
+        android:layout_marginTop="25dp"
+        android:text="A: Answer A Here "
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="B: Answer B Here"
+        android:textColor="#000000" />
+
+    <TextView
         android:id="@+id/answerBtextView"
-        android:layout_marginTop="22dp"
-        android:textColor="#000000"
-        android:layout_below="@+id/answerAtextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/answerAtextView"
         android:layout_alignLeft="@+id/answerAtextView"
-        android:layout_alignStart="@+id/answerAtextView"
-        android:layout_toStartOf="@+id/buttonB"
         android:layout_alignRight="@+id/answerAtextView"
-        android:layout_alignEnd="@+id/answerAtextView" />
+        android:layout_alignStart="@+id/answerAtextView"
+        android:layout_below="@+id/answerAtextView"
+        android:layout_marginTop="22dp"
+        android:layout_toStartOf="@+id/buttonB"
+        android:text="B: Answer B Here"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000000" />
 
     <Button
+        android:id="@+id/buttonA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="A"
-        android:id="@+id/buttonA"
-        android:layout_marginTop="63dp"
-        android:textColor="#ffffff"
-        android:background="#52a7df"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/answerBtextView"
-        android:layout_alignLeft="@+id/answerBtextView"
-        android:layout_alignStart="@+id/answerBtextView" />
+        android:layout_marginTop="63dp"
+        android:layout_toLeftOf="@+id/space"
+        android:layout_toStartOf="@+id/space"
+        android:background="#52a7df"
+        android:stateListAnimator="@null"
+        android:text="A"
+        android:textColor="#ffffff" />
 
     <TextView
+        android:id="@+id/AScoretextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="A: 0"
-        android:id="@+id/AScoretextView"
-        android:layout_below="@+id/buttonA"
-        android:textColor="#000000"
-        android:layout_alignRight="@+id/buttonA"
+        android:layout_above="@+id/buttonB"
         android:layout_alignEnd="@+id/buttonA"
-        android:gravity="center"
         android:layout_alignLeft="@+id/buttonA"
-        android:layout_alignStart="@+id/buttonA" />
+        android:layout_alignRight="@+id/buttonA"
+        android:layout_alignStart="@+id/buttonA"
+        android:layout_toStartOf="@+id/buttonB"
+        android:gravity="center"
+        android:text="A: 0"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000000" />
 
     <Space
+        android:id="@+id/space"
         android:layout_width="20px"
         android:layout_height="20px"
         android:layout_below="@+id/button3"
         android:layout_centerHorizontal="true" />
 
     <Button
+        android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Report"
-        android:id="@+id/button3"
-        android:textColor="#ffffff"
+        android:layout_alignBaseline="@+id/button2"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_toEndOf="@+id/space"
+        android:layout_toRightOf="@+id/space"
         android:background="#52a7df"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/button2"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2"
-        android:layout_alignRight="@+id/button2"
-        android:layout_alignEnd="@+id/button2" />
+        android:stateListAnimator="@null"
+        android:text="Report"
+        android:textColor="#ffffff" />
 
     <Button
+        android:id="@+id/buttonB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="B"
-        android:id="@+id/buttonB"
-        android:textColor="#ffffff"
-        android:background="#52a7df"
-        android:layout_marginRight="26dp"
-        android:layout_marginEnd="26dp"
-        android:layout_alignBaseline="@+id/buttonA"
-        android:layout_alignBottom="@+id/buttonA"
+        android:layout_above="@+id/button2"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_toEndOf="@+id/space"
+        android:background="#52a7df"
+        android:stateListAnimator="@null"
+        android:text="B"
+        android:textColor="#ffffff" />
 
     <TextView
+        android:id="@+id/BScoretextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="B: 0"
-        android:id="@+id/BScoretextView"
-        android:textColor="#000000"
-        android:gravity="center"
-        android:layout_below="@+id/buttonB"
-        android:layout_alignLeft="@+id/buttonB"
-        android:layout_alignStart="@+id/buttonB"
+        android:layout_alignEnd="@+id/buttonB"
         android:layout_alignRight="@+id/buttonB"
-        android:layout_alignEnd="@+id/buttonB" />
+        android:layout_alignTop="@+id/AScoretextView"
+        android:layout_toRightOf="@+id/space"
+        android:gravity="center"
+        android:text="B: 0"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000000" />
 </RelativeLayout>

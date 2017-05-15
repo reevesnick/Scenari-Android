@@ -22,7 +22,8 @@
             android:layout_width="27dp"
             android:layout_height="30dp"
             android:layout_weight="1"/>
-           <!-- android:src="@drawable/trash" -->
+        <!-- android:src="@drawable/trash" -->
+        <!-- android:src="@drawable/trash" -->
 
 
         <TextView
@@ -40,104 +41,103 @@
             android:layout_weight="4"
             android:text="Delete"
             android:textColor="#FF5534" />
-          <!--  android:background="@drawable/white" -->
+        <!--  android:background="@drawable/white" -->
 
     </LinearLayout>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:showDividers="middle">
-
-
-
-    <TextView
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Question: Lorem Ispum"
-        android:id="@+id/questiontextView"
-        android:textColor="#000000"
-        android:layout_marginTop="31dp"
-        android:gravity="center"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:background="@drawable/card"
+        >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="A: Answer A Here "
-        android:id="@+id/answerAtextView"
-        android:textColor="#000000"
-        android:layout_below="@+id/questiontextView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="24dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="B: Answer B Here"
-        android:id="@+id/answerBtextView"
-        android:layout_marginTop="22dp"
-        android:textColor="#000000"
-        android:layout_below="@+id/answerAtextView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="A: 0"
-        android:id="@+id/AScoretextView"
-        android:textColor="#000000"
-        android:gravity="center"
-        android:layout_below="@+id/answerBtextView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="55dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Question: Lorem Ispum"
+            android:id="@+id/questiontextView"
+            android:textColor="#000000"
+            android:layout_marginTop="31dp"
+            android:gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="B: 0"
-        android:id="@+id/BScoretextView"
-        android:textColor="#000000"
-        android:gravity="center"
-        android:layout_alignTop="@+id/AScoretextView"
-        android:layout_alignRight="@+id/button3"
-        android:layout_alignEnd="@+id/button3"
-        android:layout_marginRight="39dp"
-        android:layout_marginEnd="39dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="A: Answer A Here "
+            android:id="@+id/answerAtextView"
+            android:textColor="#000000"
+            android:layout_below="@+id/questiontextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Share"
-        android:id="@+id/button3"
-        android:textColor="#ffffff"
-        android:background="#52a7df"
-        android:layout_below="@+id/AScoretextView"
-        android:layout_marginTop="32dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="B: Answer B Here"
+            android:id="@+id/answerBtextView"
+            android:layout_marginTop="22dp"
+            android:textColor="#000000"
+            android:layout_below="@+id/answerAtextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
-    <Space
-        android:layout_width="20px"
-        android:layout_height="20px"
-        android:layout_below="@+id/button3"
-        android:layout_centerHorizontal="true" />
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="A: 0"
+            android:id="@+id/AScoretextView"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:layout_below="@+id/answerBtextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="55dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="B: 0"
+            android:id="@+id/BScoretextView"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:layout_alignTop="@+id/AScoretextView"
+            android:layout_alignRight="@+id/button3"
+            android:layout_alignEnd="@+id/button3"
+            android:layout_marginRight="39dp"
+            android:layout_marginEnd="39dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Share"
+            android:id="@+id/button3"
+            android:textColor="#ffffff"
+            android:background="#52a7df"
+            android:layout_below="@+id/AScoretextView"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:stateListAnimator="@null"/>
+
+
+    </RelativeLayout>
 </com.daimajia.swipe.SwipeLayout>

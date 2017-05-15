@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:showDividers="middle">
+    android:showDividers="middle"
+    android:background="@drawable/card">
 
     <com.lbbw.scenari.Circle_ImageView
         android:layout_width="44dp"
@@ -69,6 +70,13 @@
         android:layout_alignRight="@+id/questiontextView"
         android:layout_alignEnd="@+id/questiontextView" />
 
+    <Space
+        android:id="@+id/space"
+        android:layout_width="20px"
+        android:layout_height="20px"
+        android:layout_below="@+id/button3"
+        android:layout_centerHorizontal="true" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -89,12 +97,12 @@
         android:layout_height="wrap_content"
         android:text="A"
         android:id="@+id/buttonA"
-        android:layout_marginTop="63dp"
         android:textColor="#ffffff"
         android:background="#52a7df"
-        android:layout_below="@+id/answerBtextView"
-        android:layout_alignLeft="@+id/answerBtextView"
-        android:layout_alignStart="@+id/answerBtextView" />
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/space"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -103,11 +111,11 @@
         android:id="@+id/buttonB"
         android:textColor="#ffffff"
         android:background="#52a7df"
-        android:layout_above="@+id/BScoretextView"
-        android:layout_alignRight="@+id/dateView"
-        android:layout_alignEnd="@+id/dateView"
-        android:layout_marginRight="32dp"
-        android:layout_marginEnd="32dp" />
+        android:layout_alignBaseline="@+id/buttonA"
+        android:layout_alignBottom="@+id/buttonA"
+        android:layout_toRightOf="@+id/space"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -115,13 +123,12 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="A: 0"
         android:id="@+id/AScoretextView"
-        android:layout_below="@+id/buttonA"
         android:textColor="#000000"
-        android:layout_alignRight="@+id/buttonA"
-        android:layout_alignEnd="@+id/buttonA"
         android:gravity="center"
-        android:layout_alignLeft="@+id/buttonA"
-        android:layout_alignStart="@+id/buttonA" />
+        android:layout_above="@+id/buttonA"
+        android:layout_toLeftOf="@+id/space"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -130,12 +137,12 @@
         android:text="B: 0"
         android:id="@+id/BScoretextView"
         android:textColor="#000000"
-        android:layout_above="@+id/button3"
+        android:gravity="center"
+        android:layout_alignTop="@+id/AScoretextView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignLeft="@+id/buttonB"
-        android:layout_alignStart="@+id/buttonB"
-        android:layout_alignRight="@+id/buttonB"
-        android:layout_alignEnd="@+id/buttonB"
-        android:gravity="center" />
+        android:layout_alignStart="@+id/buttonB" />
 
     <Button
         android:layout_width="wrap_content"
@@ -144,12 +151,12 @@
         android:id="@+id/button3"
         android:textColor="#ffffff"
         android:background="#52a7df"
-        android:layout_below="@+id/AScoretextView"
-        android:layout_marginTop="23dp"
-        android:layout_alignRight="@+id/BScoretextView"
-        android:layout_alignEnd="@+id/BScoretextView"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/buttonA"
         android:layout_alignLeft="@+id/buttonA"
-        android:layout_alignStart="@+id/buttonA" />
+        android:layout_alignStart="@+id/buttonA"
+        android:layout_toLeftOf="@+id/space"
+        android:layout_toStartOf="@+id/space" />
 
 
     <Button
@@ -159,10 +166,9 @@
         android:id="@+id/reportbutton"
         android:textColor="#ffffff"
         android:background="#52a7df"
-        android:layout_below="@+id/button3"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_alignStart="@+id/button3"
-        android:layout_marginTop="28dp"
-        android:layout_alignRight="@+id/button3"
-        android:layout_alignEnd="@+id/button3" />
+        android:layout_alignBaseline="@+id/button3"
+        android:layout_alignBottom="@+id/button3"
+        android:layout_toRightOf="@+id/space"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>
