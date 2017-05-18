@@ -8,10 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.ParseFile;
+import com.parse.ParseImageView;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
@@ -30,9 +32,6 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
     private List<QuestionData> recentlist = null;
     private ArrayList<QuestionData> arraylist;
     private ShareActionProvider mShareActionProvider;
-
-
-
     private Button buttonA;
     private Button buttonB;
     private Button shareButton;
@@ -49,12 +48,7 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
 
         });
 
-
     }
-
-
-
-
 
     @Override
     public View getItemView(final ParseObject object, View v, ViewGroup parent) {
@@ -63,21 +57,22 @@ public class RecentListViewAdapter extends ParseQueryAdapter {
         if (v == null) {
             v = View.inflate(getContext(), R.layout.homefragment_item, null);
         }
-/*
-        ParseUser parseObject = Pa.create("Activity");
-        parseObject = object.getParseObject("postCreator");
-        String username = parseObject.getString("username");
-*/
+
         Circle_ImageView profileImage = (Circle_ImageView) v.findViewById(R.id.imageView2);
+        ParseImageView image = (ParseImageView) v.findViewById(R.id.postImage);
+
+        ParseFile postImageFile = object.getParseFile("image");
         ParseFile imageFile = object.getParseObject("postCreator").getParseFile("profile_pic");
+
         if (imageFile != null){
             profileImage.setParseFile(imageFile);
             profileImage.loadInBackground();
         }
 
-
-
-       // final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        if (postImageFile != null){
+            image.setParseFile(postImageFile);
+            image.loadInBackground();
+        }
 
 
         TextView usernameTextView = (TextView) v.findViewById(R.id.usernametextView);

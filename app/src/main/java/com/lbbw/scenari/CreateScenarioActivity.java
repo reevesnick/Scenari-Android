@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.parse.ParseObject;
@@ -21,6 +23,7 @@ public class CreateScenarioActivity extends AppCompatActivity {
     private EditText answerAText;
     private EditText answerBText;
     private Button submitButton;
+    private ImageButton imageView;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -35,6 +38,8 @@ public class CreateScenarioActivity extends AppCompatActivity {
         answerAText = (EditText)findViewById(R.id.questionA);
         answerBText = (EditText)findViewById(R.id.questionB);
         submitButton = (Button)findViewById(R.id.postButton);
+        imageView = (ImageButton)findViewById(R.id.imageButton);
+
 
 
         submitButton.setOnClickListener(new View.OnClickListener() {

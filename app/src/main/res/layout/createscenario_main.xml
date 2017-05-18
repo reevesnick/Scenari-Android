@@ -7,7 +7,8 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:id="@+id/appBarLayout2">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -33,41 +34,54 @@
         android:layout_alignParentStart="true" />
 
     <EditText
+        android:id="@+id/questionsText"
         android:layout_width="wrap_content"
         android:layout_height="180dp"
-        android:id="@+id/questionsText"
-        android:layout_weight="1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/questionA"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="72dp"
+        android:layout_weight="1"
         android:hint="Enter your scenario here"
-        />
+        android:singleLine="false" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/questionA"
-        android:layout_below="@+id/questionsText"
-        android:layout_marginTop="74dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:hint="Question A Here"
+        android:layout_above="@+id/questionB"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Question A Here"/>
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/questionB"
-        android:layout_below="@+id/questionA"
-        android:layout_marginTop="39dp"
+        android:hint="Question B Here"
+        android:layout_marginBottom="17dp"
+        android:layout_above="@+id/postButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:hint="Question B Here"/>
+        android:layout_alignParentEnd="true" />
 
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        app:srcCompat="@drawable/com_parse_ui_twitter_login_button_background_selector"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/appBarLayout2"
+        android:layout_above="@+id/questionsText" />
 
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/card"
@@ -24,26 +25,26 @@
         android:id="@+id/imageView2"
         android:layout_width="44dp"
         android:layout_height="45dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/circle"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="23dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="23dp"
-        android:background="@drawable/circle" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/usernametextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/questiontextView"
-        android:layout_alignRight="@+id/questiontextView"
         android:layout_alignTop="@+id/imageView2"
         android:layout_toRightOf="@+id/imageView2"
         android:text="\@username"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#000000"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/dateView"
@@ -57,19 +58,33 @@
         android:text="1/1/2016 at 12:00 PM"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
+    <com.parse.ParseImageView
+        android:id="@+id/postImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/dateView"
+        android:layout_alignLeft="@id/dateView"
+        android:layout_alignRight="@id/dateView"
+        android:layout_alignEnd="@id/dateView"
+        android:adjustViewBounds="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/questiontextView"
+        android:layout_below="@+id/imageView2" />
+
     <TextView
         android:id="@+id/questiontextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/buttonB"
-        android:layout_alignLeft="@+id/imageView2"
         android:layout_alignRight="@+id/buttonB"
-        android:layout_alignStart="@+id/imageView2"
-        android:layout_below="@+id/dateView"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="99dp"
         android:text="Question: Lorem Ispum"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_alignStart="@+id/imageView2" />
 
     <TextView
         android:id="@+id/answerAtextView"
@@ -177,4 +192,6 @@
         android:text="B: 0"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#000000" />
+
+
 </RelativeLayout>
