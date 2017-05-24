@@ -1,4 +1,4 @@
-package com.lbbw.scenari;
+package com.lbbw.scenari.customui;
 
 import android.content.Context;
 import android.graphics.Bitmap;

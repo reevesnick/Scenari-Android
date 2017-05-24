@@ -1,4 +1,4 @@
-package com.lbbw.scenari;
+package com.lbbw.scenari.profile;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.lbbw.scenari.apidata.QuestionData;
+import com.lbbw.scenari.R;
 import com.lbbw.scenari.util.ImageLoader;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;

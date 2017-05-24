@@ -1,4 +1,4 @@
-package com.lbbw.scenari;
+package com.lbbw.scenari.search;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lbbw.scenari.R;
+import com.lbbw.scenari.apidata.QuestionData;
 import com.lbbw.scenari.customui.Circle_ImageView;
 import com.lbbw.scenari.util.ImageLoader;
 import com.parse.ParseFile;

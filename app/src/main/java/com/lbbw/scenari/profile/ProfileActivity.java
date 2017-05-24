@@ -1,4 +1,4 @@
-package com.lbbw.scenari;
+package com.lbbw.scenari.profile;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daimajia.swipe.SwipeLayout;
+import com.lbbw.scenari.R;
+import com.lbbw.scenari.customui.RoundImage;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;

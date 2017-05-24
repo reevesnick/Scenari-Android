@@ -1,7 +1,5 @@
-package com.lbbw.scenari;
+package com.lbbw.scenari.search;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,11 +11,12 @@ import android.widget.ListView;
 import android.support.v7.widget.SearchView;
 import android.widget.TextView;
 
+import com.lbbw.scenari.R;
+import com.lbbw.scenari.customui.RoundImage;
+import com.lbbw.scenari.profile.ProfileActivity;
 import com.parse.ParseFile;
-import com.parse.ParseImageView;
 import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
-import com.parse.ParseUser;
 
 /**
  * Created by neegbeahreeves on 6/23/16.

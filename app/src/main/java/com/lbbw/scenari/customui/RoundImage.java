@@ -1,4 +1,4 @@
-package com.lbbw.scenari;
+package com.lbbw.scenari.customui;
 
 /**
  * Created by neegbeahreeves on 7/13/16.

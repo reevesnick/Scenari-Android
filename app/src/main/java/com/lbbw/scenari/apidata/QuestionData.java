@@ -1,4 +1,4 @@
-package com.lbbw.scenari;
+package com.lbbw.scenari.apidata;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;

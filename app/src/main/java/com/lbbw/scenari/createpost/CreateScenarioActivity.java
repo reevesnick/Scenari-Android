@@ -1,6 +1,5 @@
-package com.lbbw.scenari;
+package com.lbbw.scenari.createpost;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,9 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.lbbw.scenari.MainActivity;
+import com.lbbw.scenari.R;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 

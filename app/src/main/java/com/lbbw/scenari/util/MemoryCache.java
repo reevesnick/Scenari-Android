@@ -1,4 +1,4 @@
-package com.lbbw.scenari;
+package com.lbbw.scenari.util;
 
 /**
  * Created by BTX17-1 on 6/13/2014.

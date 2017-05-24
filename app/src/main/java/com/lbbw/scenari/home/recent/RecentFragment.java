@@ -1,14 +1,14 @@
-package com.lbbw.scenari;
+package com.lbbw.scenari.home.recent;
 
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.ShareActionProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.lbbw.scenari.R;
 import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
 
