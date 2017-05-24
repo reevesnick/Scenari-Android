@@ -77,6 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:stateListAnimator="@null"
         app:srcCompat="@drawable/com_parse_ui_twitter_login_button_background_selector"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"

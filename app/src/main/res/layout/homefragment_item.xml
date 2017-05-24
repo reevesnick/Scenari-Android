@@ -21,7 +21,7 @@
         android:text="Share"
         android:textColor="#ffffff" />
 
-    <com.lbbw.scenari.Circle_ImageView
+    <com.lbbw.scenari.customui.Circle_ImageView
         android:id="@+id/imageView2"
         android:layout_width="44dp"
         android:layout_height="45dp"
@@ -58,31 +58,37 @@
         android:text="1/1/2016 at 12:00 PM"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <com.parse.ParseImageView
-        android:id="@+id/postImage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@id/dateView"
-        android:layout_alignLeft="@id/dateView"
-        android:layout_alignRight="@id/dateView"
-        android:layout_alignEnd="@id/dateView"
-        android:adjustViewBounds="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/questiontextView"
-        android:layout_below="@+id/imageView2" />
-
+    <!--<FrameLayout-->
+        <!--android:id="@+id/framepostImage"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:adjustViewBounds="true"-->
+        <!--android:layout_above="@+id/questiontextView"-->
+        <!--android:layout_below="@+id/dateView"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignEnd="@+id/dateView"-->
+        <!--android:layout_alignRight="@+id/dateView"-->
+        <!--android:layout_alignWithParentIfMissing="true">-->
+        <!--<com.lbbw.scenari.customui.PostImageScaleView-->
+            <!--android:id="@+id/postImage"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="350dp"-->
+            <!--android:scaleType="centerCrop"/>-->
+<!--</FrameLayout>-->
     <TextView
         android:id="@+id/questiontextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/buttonB"
-        android:layout_alignRight="@+id/buttonB"
-        android:layout_marginTop="99dp"
+        android:layout_marginTop="14dp"
         android:text="Question: Lorem Ispum"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"
         android:layout_below="@+id/imageView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignLeft="@+id/imageView2"
         android:layout_alignStart="@+id/imageView2" />
 

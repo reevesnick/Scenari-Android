@@ -65,13 +65,13 @@
         </activity>
 
         <activity
-            android:name=".CreateScenarioActivity"
+            android:name=".createpost.CreateScenarioActivity"
             android:label="Create A Scenario"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".SearchActivity"
+            android:name=".search.SearchActivity"
             android:label="Search"
             android:screenOrientation="portrait">
 
@@ -83,7 +83,7 @@
 
 
         <activity
-            android:name=".ProfileActivity"
+            android:name=".profile.ProfileActivity"
             android:label="Profile"
             android:screenOrientation="portrait"
             android:theme="@style/MyMaterialTheme">

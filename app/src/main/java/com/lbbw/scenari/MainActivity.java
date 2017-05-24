@@ -8,7 +8,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,7 +19,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,14 +26,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.crashlytics.android.Crashlytics;
-
 import com.facebook.AccessToken;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
+import com.lbbw.scenari.createpost.CreateScenarioActivity;
+import com.lbbw.scenari.customui.Circle_ImageView;
+import com.lbbw.scenari.home.popular.PopularFragment;
+import com.lbbw.scenari.home.recent.RecentFragment;
+import com.lbbw.scenari.profile.ProfileActivity;
+import com.lbbw.scenari.search.SearchActivity;
 import com.parse.LogInCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseFile;
@@ -45,8 +46,6 @@ import com.parse.ui.ParseLoginBuilder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import io.fabric.sdk.android.Fabric;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;

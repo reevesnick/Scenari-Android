@@ -31,7 +31,7 @@
         <!--android:layout_below="@+id/toolbar"> -->
 
 
-        <com.lbbw.scenari.Circle_ImageView
+        <com.lbbw.scenari.customui.Circle_ImageView
             android:id="@+id/imageView"
             android:layout_width="99dp"
             android:layout_height="99dp"
